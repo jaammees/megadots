@@ -16,23 +16,23 @@
 
 // how fast player decelerates in air with no input
 .const PLAYER_AIR_FORCE_NO_INPUT     = 1
-.const PLAYER_AIR_FORCE     = 3
+.const PLAYER_AIR_FORCE      = 3
 
-.const COYOTE_TIME          = 6
+.const COYOTE_TIME           = 6
 
-.const WALL_JUMP_SPEED     = 14//17
+.const WALL_JUMP_SPEED       = 14//17
 // time after wall jump player can't control left or right
-.const WALL_JUMP_TIME      = 7
-.const WALL_STICK_TIME     = 10
+.const WALL_JUMP_TIME        = 7
+.const WALL_STICK_TIME       = 10
 
-.const UP_TILE_SPEED       = 30
+.const UP_TILE_SPEED         = 30
 
-.const BOOST_SPEED         = 22 //18
-.const BOOST_STEPS         = 11 //12
+.const BOOST_SPEED           = 22 //18
+.const BOOST_STEPS           = 11 //12
 
 
 // enemy constants
-.const ENEMY_SPEED = 2
+.const ENEMY_SPEED           = 2
 
 
 // emitter tile constants

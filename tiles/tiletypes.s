@@ -1,8 +1,13 @@
-// tile 2 pixels high
+// tiles start at tile 136 ($2200 = 136x64)
+// 64 bytes per tile
+.const FIRST_TILE        = 136
+
+
+
+// just a holder value to represent a tile 2 pixels high
 .const TILE_2_HIGH       = 102
 
 
-.const FIRST_TILE        = 136
 
 
 .const TILE_0            = FIRST_TILE + 64

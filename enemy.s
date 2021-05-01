@@ -24,11 +24,8 @@ enemy_check_below:
 
 enemy_check_speed:
 
-  // set vertical speed to 0
-//  lda #$0
-//  sta actor_sy,x
 
-  // if actor speed is 0, set it to +1
+  // if enemy speed is 0, set it according to the direction it's facing
   lda actor_sx,x
   bne enemy_check_sides
 
@@ -55,9 +52,6 @@ enemy_check_sides:
 enemy_test_below_left:
   
   // check the character below to the left
-//  lda actor_type,x    // friend 1 doesn't stop on edge
-//  cmp #FRIEND1
-//  beq enemy_test_right
 
   lda actor_char_below_left,x
   cmp #TILE_BLOCK  // shorthand for this?
@@ -84,9 +78,6 @@ enemy_test_right:
 
 
 enemy_test_below_right:
-//  lda actor_type,x    // friend 1 doesn't stop on edge
-//  cmp #FRIEND1
-//  beq enemy_move_vertically
 
   lda actor_char_below_right,x
 
@@ -117,17 +108,12 @@ enemy_move_vertically:
   // going too fast down
   lda actor_max_down_speed
   sta actor_sy,x
-
-//  lda #03
-//  sta actor_sy,x
   
   
 enemy_logic_next:
 
   dex
-//  cpx #01
   beq enemy_logic_done
-//  bmi enemy_logic_done
   jmp enemy_logic_loop
 
 

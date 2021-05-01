@@ -26,7 +26,7 @@ temp4:                    .byte $0
 row:                      .byte $0
 col:                      .byte $0
 
-// used in actors.asm
+// used in actors.s
 virtual_sprites_enabled:  .byte $0
 virtual_spritex_msb:      .byte $0
 sprite_xl:                .byte $0
@@ -38,7 +38,7 @@ sprite_y:                 .byte $0
 actor_y_offset:           .byte $0
 actor_x_offset:           .byte $0
 
-// used in player.asm
+// used in player.s
 player_button_down:        .byte $0
 player_jump_counter:       .byte $0
 player_coyote_counter:     .byte $0
@@ -49,7 +49,7 @@ player_boost_counter:      .byte $0
 player_touching_door:      .byte $0
 
 
-// used in levels.asm
+// used in levels.s
 level_current:             .byte $0
 level_data_low:            .byte $0
 level_data_high:           .byte $0
@@ -69,21 +69,21 @@ dot_count:                 .byte $0
 door_color_address_low:    .byte $0
 door_color_address_high:   .byte $0
 
-// used in animatedtiles.asm
+// used in animatedtiles.s
 tile_type:                 .byte $0
 animated_tile_time:        .byte $0
 
 
 
-// used in collisions.asm
+// used in collisions.s
 collision_switch:          .byte $0
 collision_char_register:   .byte $0
 collision_sprite_register: .byte $0
 
-// used in switches.asm
+// used in switches.s
 switch_type:               .byte $0
 
-// use in sound.asm
+// use in sound.s
 sound_last_channel:        .byte $0
 
 
@@ -134,7 +134,7 @@ sprite_to_tile_col_high:         .byte 0
 sprite_to_tile_row_low:          .byte 0
 sprite_to_tile_row_high:         .byte 0
 
-// used in text.asm
+// used in text.s
 text_address_low:                .byte 0
 text_address_high:               .byte 0
 

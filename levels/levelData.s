@@ -1,3 +1,5 @@
+// data making up each of the levels
+
 .const STARTING_LEVEL = 0
 .const LEVEL_COUNT    = 10
 

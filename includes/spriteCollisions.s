@@ -1,7 +1,5 @@
 // work out sprite to sprite and sprite to tile collisions
-// a mess, but seems to work
-
-
+// a hacked together mess, but seems to work
 
 // store sprite to sprite collisions
 sprite_to_sprite:

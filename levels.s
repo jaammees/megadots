@@ -1,11 +1,12 @@
 // routines to draw a level, go to next level
+// data for the levels is in levels/levelData.s
 
 .const DOOR_GREEN       = 51
 .const DOOR_LIGHT_GREEN = 57
 .const DOOR_DARK_GREEN  = 56
 
 
-// flash the door if can exit
+// flash the door exit sign if the player can exit
 DoorStatus: {
   phy
   phx
@@ -55,7 +56,7 @@ door_status_done:
 }
 
 NextLevel: {
-  // to go to next leve, dot count needs to be zero
+  // to go to next level, dot count needs to be zero
   lda dot_count
   bne next_level_done
 
@@ -73,6 +74,8 @@ next_level_done:
   rts
 }
 
+
+// start a level
 StartLevel: {
   lda #GAME_STATE_PLAY
   sta game_state
@@ -190,13 +193,6 @@ DrawLevelData: {
   jsr SetTilePalette
 
 
-	// bg colour
-  /*
-  iny
-	lda (level_data_low),y
-	sta $d021
-	sta $d020
-	*/
 	// number of lines
 	iny
 	lda (level_data_low),y
@@ -219,8 +215,6 @@ DrawLevelData: {
 	jsr ClearScreen
 	jsr DrawBorder
 	jsr DrawLines
-//	jsr setup_enemies
-//	jsr setup_player
   rts
 }
 
@@ -253,11 +247,8 @@ DrawLines: {
   // length
   lda (level_data_low),y
   and #$7f
-  tax
 	// put length into x
-//	lsr
-//	tax
-//	rol level_line_direction
+  tax
 	
 	// point level_data to next line data (4 bytes per line)
 	clc
@@ -273,8 +264,6 @@ DrawLines: {
 draw_line_loop:
 	jsr GetScreenAddress
 	lda level_line_type
-  // ---------------------------
-//  lda #TILE_SOLID
 	sta (address_low),y
 	
 	cmp #TILE_EMITTER_UP
@@ -451,7 +440,6 @@ SetupPlayer: {
 
 OpenTheDoor: {
   phy
-//  inc $d020
   // draw the open door
   ldy #0
   lda #DOOR_OPEN_1

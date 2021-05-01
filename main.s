@@ -98,9 +98,7 @@ wait_for_raster_end:
   jmp !-
 }
 
-//*=$a000
-
-*= $3e04 //$4000
+*= $3e04 
 #import "includes/setup.s"
 #import "includes/util.s"
 #import "includes/text.s"

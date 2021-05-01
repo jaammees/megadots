@@ -13,9 +13,9 @@ check_screen_y:
 .byte $0
 
 // get character type at x, y pixel location
-// x low in check_screen_xl, x high in check_screen_xh
+// x coordinate low byte in check_screen_xl, x coordinate high byte in check_screen_xh
 // y in check_screen_y
-// translate character to character type, store in accumulator
+// translate tile to tile type (solid or not), store in accumulator
 GetCharAt: {
 
   // divide y by 8, store in row

@@ -1,3 +1,6 @@
+// read the keyboard
+
+
 
 .const PRA  =  $dc00            // CIA#1 (Port Register A)
 .const PRB  =  $dc01            // CIA#1 (Port Register B)
