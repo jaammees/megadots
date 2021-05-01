@@ -10,13 +10,13 @@
 actor_jump_table:
 .byte -4, -06, -08, -08, -8, -10, -11, -13, -12, -10, -10, -10, -10, -12, -12, -12
 
-PlayerDie: {
 
+// player has died, start countdown to restarting the level
+PlayerDie: {
 	jsr StatusIncreaseTries
 
 	lda #(diesound - soundsstart)
   jsr QueueSound
-
 
   lda #GAME_STATE_DEAD
   sta game_state
@@ -27,7 +27,7 @@ PlayerDie: {
 	rts
 }
 
-
+// accumulator should be 1 if player can boost, 0 otherwise
 SetPlayerCanBoost: {
 	phy
 	phx
@@ -53,6 +53,8 @@ set_player_can_boost_done:
 	rts
 }
 
+
+// respond to player controls
 PlayerControls: {
 
 adjust_coyote:

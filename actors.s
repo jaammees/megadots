@@ -1,4 +1,6 @@
-// actors are 14 pixels high
+// up to 8 actors for each level
+// actor 0 is always the player
+// actor 7 is always the effects (dust, boost, etc)
 
 .const ACTOR_COUNT = 8
 

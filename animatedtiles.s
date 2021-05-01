@@ -1,6 +1,5 @@
+// animated tiles, crumble, projectile, projectile emitter, bounce up tile
 .const MAX_ANIMATED_TILES   = 64
-
-
 
 AddAnimatedTile: {
   // save x..use y instead??

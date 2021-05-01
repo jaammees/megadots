@@ -1,3 +1,5 @@
+// routines to draw a level, go to next level
+
 .const DOOR_GREEN       = 51
 .const DOOR_LIGHT_GREEN = 57
 .const DOOR_DARK_GREEN  = 56

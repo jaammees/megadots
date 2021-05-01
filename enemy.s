@@ -1,3 +1,4 @@
+// enemy logic, just goes left and right
 
 EnemyLogic: {
   // go through the 5 possible enemies

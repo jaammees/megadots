@@ -1,15 +1,3 @@
-//pulsewidth_lowbyte = $d402
-//pulsewidth_highbyte= $d403
-
-// control sets the waveform and gatebit
-//wavecontrol = $d404
-
-// the first nybble of attack_decay is attack, the second nybble is decay
-// on the SID this is $d405
-//attack_decay = $d405
-// the first nybble of sustain_release is sustain, the second nybble is release
-//sustain_release = $d406
-
 .const FILTERMODE_VOLUME = $d418
 
 

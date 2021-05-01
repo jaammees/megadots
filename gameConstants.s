@@ -1,6 +1,7 @@
 .const GAME_STATE_PLAY        = 0
 .const GAME_STATE_DEAD        = 1
 
+// things to tweak
 
 // player constants
 .const MAX_PLAYER_SPEED      = 11

@@ -1,3 +1,5 @@
+// check sprite to tile collisions, sprite to sprite collisions
+
 CheckCollisions: {
 	// reset collision switch and player touching door
   lda #00

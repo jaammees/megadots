@@ -1,3 +1,4 @@
+// draw the status bar at the top of the screen
 .encoding "screencode_mixed"
 
 player_status_display:

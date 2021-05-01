@@ -76,7 +76,10 @@ game_play:
   jsr AnimateTiles
   jsr EnemyLogic
 
+	// just in case the player somehow gets outside the play area
 	jsr PlayerCheckInPlayArea
+
+	// should the door exit be flashing?
 	jsr DoorStatus
 	
 game_play_end:

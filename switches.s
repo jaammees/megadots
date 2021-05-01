@@ -1,4 +1,6 @@
-// asm file
+// switches make tiles solid and blank
+
+
 SwitchPress: {
   // need to save x
   phx

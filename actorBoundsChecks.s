@@ -1,3 +1,5 @@
+// routines to see which tiles are above, below, to the sides, etc of each actor
+
 collision_char:
 .byte $0
 
