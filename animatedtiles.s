@@ -446,53 +446,6 @@ draw_projectile_new:
 draw_projectile_new_done:
 
 
-  // store new value for row/col
-//  lda row
-//  sta animated_tile_row,x
-//  lda col
-//  sta animated_tile_col,x
-
-//  jmp set_tile_c_color
-
-//animate_tile_c_end
-//  lda #$0
-//  sta animated_tile,x
-//  jmp animate_tiles_next
-
-
-//animate_tile_check_next_type4
-//  cmp #TILE_EMITTER2
-//  bne animate_tile_check_next_type5
-
-  // want to insert C tile in next row
-//  lda animated_tile_row,x
-//  sta row
-//  inc row
-//  lda animated_tile_col,x
-//  sta col
-
-  // store the 'C' type in tile_type
-//  lda #$02
-//  sta tile_type
-
-//  jmp add_animated_tile_c
-
-//animate_tile_check_next_type5
-//  cmp #TILE_EMITTER3
-//  bne animate_tiles_next
-
-  // want to insert C tile in prev col
-//  lda animated_tile_row,x
-//  sta row
-//  lda animated_tile_col,x
-//  sta col
-//  dec col
-  
-  // store the 'C' type in tile_type
-//  lda #$01
-//  sta tile_type
-
-//  jmp add_animated_tile_c
   
 animate_tiles_next:
   dex

@@ -1,3 +1,6 @@
+.const STARTING_LEVEL         = 0
+
+
 .const GAME_STATE_PLAY        = 0
 .const GAME_STATE_DEAD        = 1
 

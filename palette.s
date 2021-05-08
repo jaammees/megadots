@@ -62,6 +62,8 @@ CopySpriteColor: {
 }
 
 
+
+
 // choose a tile palette from palettes in palettes/paletteData.s
 // accumulator has palette number
 SetTilePalette: {
@@ -74,6 +76,7 @@ SetTilePalette: {
 	lda #%10100110
 	sta $d070
 
+	// set the pointers to palette data
 	lda tile_palette_red_low,x
 	sta red_palette + 1
 	lda tile_palette_red_high,x
@@ -96,11 +99,9 @@ red_palette:
 	sta $d100, x //Red
 green_palette:
 	lda $ffff, x
-	lda tile_palette_0_green,x
 	sta $d200, x //Green
 blue_palette:	
 	lda $ffff, x
-	lda tile_palette_0_blue,x
 	sta $d300, x //Blue
 	inx
 	bne !-

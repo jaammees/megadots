@@ -62,10 +62,27 @@ check_switch_tile:
   beq !+  
   cmp #TILE_SWITCH_UP_BLUE
   beq !+
-  jmp check_block_tile  
+  jmp check_emitter_tile  
 !:  
   lda #TILE_2_HIGH
   rts
+check_emitter_tile:
+  cmp #TILE_EMITTER_DOWN
+  beq !+
+  cmp #TILE_EMITTER_UP
+  beq !+
+  cmp #TILE_EMITTER_LEFT
+  beq !+
+  cmp #TILE_EMITTER_RIGHT
+  beq !+
+  cmp #TILE_EMITTER_ACTIVE_DOWN
+  beq !+
+  cmp #TILE_EMITTER_ACTIVE_UP
+  beq !+
+  cmp #TILE_EMITTER_ACTIVE_LEFT
+  beq !+
+  cmp #TILE_EMITTER_ACTIVE_RIGHT
+  beq !+
 
   // if its red, green or blue tile return as a solid block
 check_block_tile:

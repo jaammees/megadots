@@ -3,6 +3,34 @@
 //is the number of the sprite (from 0 to 7), and nibblevalue is the value of the half-byte that
 //contains the sprite data for the pixel.
 
+
+sprite_palette_red_low:
+.byte <sprite_palette_0_red
+.byte <sprite_palette_1_red
+
+sprite_palette_red_high:
+.byte >sprite_palette_0_red
+.byte >sprite_palette_1_red
+
+
+sprite_palette_green_low:
+.byte <sprite_palette_0_green
+.byte <sprite_palette_1_green
+
+sprite_palette_green_high:
+.byte >sprite_palette_0_green
+.byte >sprite_palette_1_green
+
+
+sprite_palette_blue_low:
+.byte <sprite_palette_0_blue
+.byte <sprite_palette_1_blue
+
+sprite_palette_blue_high:
+.byte >sprite_palette_0_blue
+.byte >sprite_palette_1_blue
+
+
 sprite_palette_0_red:
 .byte $00,$ff,$22,$7f,$99,$65,$72,$7e,$78,$55,$4c,$74,$77,$7a,$07,$2b
 .byte $00,$00,$18,$57,$78,$65,$72,$7e,$78,$55,$4c,$74,$77,$7a,$07,$2b
@@ -39,6 +67,62 @@ sprite_palette_0_green:
 .byte $00,$ff,$33,$ec,$c3,$ca,$c2,$1f,$05,$83,$c6,$a4,$b7,$ff,$d6,$2b
 
 sprite_palette_0_blue:
+.byte $00,$ff,$22,$ff,$aa,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b
+.byte $00,$ff,$83,$8c,$79,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b
+.byte $00,$00,$83,$8c,$79,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b
+.byte $00,$ff,$83,$8c,$79,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b
+.byte $00,$ff,$83,$8c,$79,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b
+.byte $00,$ff,$83,$8c,$79,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b
+.byte $00,$ff,$83,$8c,$79,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b
+.byte $00,$ff,$83,$8c,$79,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b
+.byte $00,$ff,$83,$8c,$79,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b
+.byte $00,$ff,$83,$8c,$79,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b
+.byte $00,$ff,$83,$8c,$79,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b
+.byte $00,$ff,$83,$8c,$79,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b
+.byte $00,$ff,$83,$8c,$79,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b
+.byte $00,$ff,$83,$8c,$79,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b
+.byte $00,$ff,$83,$8c,$79,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b
+.byte $00,$ff,$83,$8c,$79,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b
+
+
+
+
+sprite_palette_1_red:
+.byte $00,$ff,$22,$7f,$99,$65,$72,$7e,$78,$55,$4c,$74,$77,$7a,$07,$2b
+.byte $00,$00,$18,$57,$78,$65,$72,$7e,$78,$55,$4c,$74,$77,$7a,$07,$2b
+.byte $00,$ff,$18,$57,$78,$65,$72,$7e,$78,$55,$4c,$74,$77,$7a,$07,$2b
+.byte $00,$ff,$18,$57,$78,$65,$72,$7e,$78,$55,$4c,$74,$77,$7a,$07,$2b
+.byte $00,$ff,$18,$57,$78,$65,$72,$7e,$78,$55,$4c,$74,$77,$7a,$07,$2b
+.byte $00,$ff,$18,$57,$78,$65,$72,$7e,$78,$55,$4c,$74,$77,$7a,$07,$2b
+.byte $00,$ff,$18,$57,$78,$65,$72,$7e,$78,$55,$4c,$74,$77,$7a,$07,$2b
+.byte $00,$ff,$18,$57,$78,$65,$72,$7e,$78,$55,$4c,$74,$77,$7a,$07,$2b
+.byte $00,$ff,$18,$57,$78,$65,$72,$7e,$78,$55,$4c,$74,$77,$7a,$07,$2b
+.byte $00,$7f,$18,$57,$78,$65,$72,$7e,$78,$55,$4c,$74,$77,$7a,$07,$2b
+.byte $00,$7f,$18,$57,$78,$65,$72,$7e,$78,$55,$4c,$74,$77,$7a,$07,$2b
+.byte $00,$7f,$18,$57,$78,$65,$72,$7e,$78,$55,$4c,$74,$77,$7a,$07,$2b
+.byte $00,$7f,$18,$57,$78,$65,$72,$7e,$78,$55,$4c,$74,$77,$7a,$07,$2b
+.byte $00,$7f,$18,$57,$78,$65,$72,$7e,$78,$55,$4c,$74,$77,$7a,$07,$2b
+.byte $00,$7f,$18,$57,$78,$65,$72,$7e,$78,$55,$4c,$74,$77,$7a,$07,$2b
+
+sprite_palette_1_green:
+.byte $00,$ff,$22,$ff,$99,$ca,$c2,$1f,$05,$83,$c6,$a4,$b7,$ff,$d6,$2b
+.byte $00,$ff,$33,$ec,$c3,$ca,$c2,$1f,$05,$83,$c6,$a4,$b7,$ff,$d6,$2b
+.byte $00,$ff,$33,$ec,$c3,$ca,$c2,$1f,$05,$83,$c6,$a4,$b7,$ff,$d6,$2b
+.byte $00,$00,$33,$ec,$c3,$ca,$c2,$1f,$05,$83,$c6,$a4,$b7,$ff,$d6,$2b
+.byte $00,$ff,$33,$ec,$c3,$ca,$c2,$1f,$05,$83,$c6,$a4,$b7,$ff,$d6,$2b
+.byte $00,$ff,$33,$ec,$c3,$ca,$c2,$1f,$05,$83,$c6,$a4,$b7,$ff,$d6,$2b
+.byte $00,$ff,$33,$ec,$c3,$ca,$c2,$1f,$05,$83,$c6,$a4,$b7,$ff,$d6,$2b
+.byte $00,$ff,$33,$ec,$c3,$ca,$c2,$1f,$05,$83,$c6,$a4,$b7,$ff,$d6,$2b
+.byte $00,$ff,$33,$ec,$c3,$ca,$c2,$1f,$05,$83,$c6,$a4,$b7,$ff,$d6,$2b
+.byte $00,$ff,$33,$ec,$c3,$ca,$c2,$1f,$05,$83,$c6,$a4,$b7,$ff,$d6,$2b
+.byte $00,$ff,$33,$ec,$c3,$ca,$c2,$1f,$05,$83,$c6,$a4,$b7,$ff,$d6,$2b
+.byte $00,$ff,$33,$ec,$c3,$ca,$c2,$1f,$05,$83,$c6,$a4,$b7,$ff,$d6,$2b
+.byte $00,$ff,$33,$ec,$c3,$ca,$c2,$1f,$05,$83,$c6,$a4,$b7,$ff,$d6,$2b
+.byte $00,$ff,$33,$ec,$c3,$ca,$c2,$1f,$05,$83,$c6,$a4,$b7,$ff,$d6,$2b
+.byte $00,$ff,$33,$ec,$c3,$ca,$c2,$1f,$05,$83,$c6,$a4,$b7,$ff,$d6,$2b
+.byte $00,$ff,$33,$ec,$c3,$ca,$c2,$1f,$05,$83,$c6,$a4,$b7,$ff,$d6,$2b
+
+sprite_palette_1_blue:
 .byte $00,$ff,$22,$ff,$aa,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b
 .byte $00,$ff,$83,$8c,$79,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b
 .byte $00,$00,$83,$8c,$79,$d4,$b9,$17,$92,$00,$17,$a4,$b7,$f9,$be,$2b

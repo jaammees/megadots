@@ -1,6 +1,6 @@
 // data making up each of the levels
 
-.const STARTING_LEVEL = 0
+
 .const LEVEL_COUNT    = 10
 
 
@@ -406,10 +406,10 @@ level8data:
 .byte 1,4,BLOCK,38
 
 
-.byte 12,5,TILE_EMITTER_DOWN,1
-.byte 18,5,TILE_EMITTER_DOWN,1
-.byte 24,5,TILE_EMITTER_DOWN,1
-.byte 30,5,TILE_EMITTER_DOWN,1
+.byte 12,4,TILE_EMITTER_DOWN,1
+.byte 18,4,TILE_EMITTER_DOWN,1
+.byte 24,4,TILE_EMITTER_DOWN,1
+.byte 30,4,TILE_EMITTER_DOWN,1
 
 .byte 37,3,TILE_SWITCH_DOWN_RED,1
 .byte 3,2,TILE_BLOCK_RED, 2 | VERTICAL

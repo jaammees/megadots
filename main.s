@@ -1,8 +1,7 @@
 .cpu _45gs02
 
-
-.const SCREEN_ADDR       = $0800
-.const COLOUR_RAM_ADDR   = $d800
+.const SCREEN_ADDR            = $0800
+.const COLOUR_RAM_ADDR        = $d800
 .const SPRITE_SCREEN_OFFSET_X = 24
 .const SPRITE_SCREEN_OFFSET_Y = 51
 
@@ -32,7 +31,7 @@ Entry: {
   lda #$0
 	sta $d020
 
-	lda #0
+	lda #STARTING_LEVEL
   sta level_current
   jsr StartLevel
 

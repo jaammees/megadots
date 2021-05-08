@@ -1,15 +1,16 @@
+
+
+screen_loop_y:
+.byte $ff,$ff,$ff,$e7
+
 // switches make tiles solid and blank
-
-
 SwitchPress: {
   // need to save x
   phx
+  phy
 
-  ldx #00
-  
-  // need to loop 4 times, use temp3 as the loop counter
-  lda #$04
-  sta temp3
+  // use x for outer loop, y for inner loop
+  ldx #0
   
   // address_low/high contains screen addresses
 
@@ -19,7 +20,8 @@ SwitchPress: {
   lda #<SCREEN_ADDR
   sta address_low
 
-  ldy #00
+set_current_color_outer_loop:  
+  ldy screen_loop_y,x
 set_current_color_loop:
   
   lda (address_low),y
@@ -132,22 +134,98 @@ make_switch_up:
   sta (address_low),y  
 set_color_next_test:
 
-  dey
+  //dey
+//  iny
+//  cpy screen_loop_y,x
+  dey 
+  cpy #$ff
   beq !+
   jmp set_current_color_loop
 !:  
-  
   // get ready for another loop
   inc address_high
-  inc address_high_2
-  ldy #$0
+//  ldy screen_loop_y,x
   
   // should we do another loop?
-  dec temp3
+  inx
+  cpx #$4
   beq !+
-  jmp set_current_color_loop
+  jmp set_current_color_outer_loop
 !:  
 
+
+  // -------------------------------------------------------//
+  // check if any of the animated 'prev' tiles need updating
+  // 'prev' would be the tile a projectile is currently in
+  ldx #MAX_ANIMATED_TILES - 1
+set_animated_current_color_loop:
+
+  lda animated_tile_prev,x
+
+  cmp #TILE_BLOCK_RED
+  beq found_animated_prev_block_tile
+  cmp #TILE_BLOCK_GREEN
+  beq found_animated_prev_block_tile
+  cmp #TILE_BLOCK_BLUE
+  beq found_animated_prev_block_tile
+
+  jmp check_for_animated_prev_blank_tile
+found_animated_prev_block_tile:
+  // convert the tile to its type, compare to switch type
+  sec
+  sbc #TILE_BLOCK_FIRST
+  cmp switch_type
+  // if not the same type, make the tile blank
+  bne make_animated_prev_tile_blank
+
+  jmp set_animated_color_next_test
+
+
+make_animated_prev_tile_blank:
+  // convert to a blank tile
+  clc 
+  adc #TILE_BLANK_FIRST
+  sta animated_tile_prev,x
+//  sta (address_low),y
+
+  jmp set_animated_color_next_test
+
+
+check_for_animated_prev_blank_tile:
+
+  cmp #TILE_BLANK_RED
+  beq found_animated_prev_blank_tile
+  cmp #TILE_BLANK_GREEN
+  beq found_animated_prev_blank_tile
+  cmp #TILE_BLANK_BLUE
+  beq found_animated_prev_blank_tile
+
+  jmp set_animated_color_next_test
+
+found_animated_prev_blank_tile:
+  // convert the tile to its type, compare to switch type
+  sec
+  sbc #TILE_BLANK_FIRST
+  cmp switch_type
+  // if is the same type, make the tile solid
+  beq make_animated_prev_tile_solid
+  jmp set_animated_color_next_test
+
+make_animated_prev_tile_solid:
+
+  // convert to a blank tile
+  clc 
+  adc #TILE_BLOCK_FIRST
+  sta animated_tile_prev,x
+
+set_animated_color_next_test:
+  dex
+  bmi !+
+  jmp set_animated_current_color_loop
+!:  
+
+
+  ply
   plx
   rts
 }
