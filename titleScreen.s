@@ -16,7 +16,7 @@ DrawTitleScreen: {
   
   lda #5
   sta row
-  lda #10
+  lda #15
   sta col
   lda #<title_name
   sta text_address_low
@@ -25,9 +25,9 @@ DrawTitleScreen: {
   jsr DrawText
 
 
-  lda #7
+  lda #8
   sta row
-  lda #10
+  lda #12
   sta col
   lda #<controls_1
   sta text_address_low
@@ -38,9 +38,9 @@ DrawTitleScreen: {
 
 
 
-  lda #9
-  sta row
   lda #10
+  sta row
+  lda #11
   sta col
   lda #<controls_2
   sta text_address_low

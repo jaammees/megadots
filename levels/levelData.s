@@ -1,7 +1,7 @@
 // data making up each of the levels
 
 
-.const LEVEL_COUNT    = 10
+.const LEVEL_COUNT    = 11
 
 
 .const VERTICAL     = $80
@@ -180,6 +180,59 @@ level3data:
 
 // ------------------------------------------------------------ //
 
+level4adata:
+// sprite palette
+.byte 0
+// tile palette
+.byte 0
+// line count
+.byte 14
+// enemy count
+.byte 0
+
+// line data
+// col, row, type, length  | orientation
+
+.byte 14,21, CRUMBLE,5
+.byte 22,19, CRUMBLE, 5
+.byte 28,13, BLOCK, 6
+.byte 27,13,SPIKE_RIGHT,1
+
+.byte 31,14,DOT,2
+
+
+
+.byte 34,4,SPIKE_UP, 1
+.byte 34,5,BLOCK, 9 | VERTICAL
+
+.byte 29,8,TILE_UP,5
+.byte 29,9,BLOCK, 5
+.byte 28,9,SPIKE_RIGHT,1
+
+
+
+.byte 1,4, DOT, 1
+.byte 1,5,CRUMBLE,3
+
+
+.byte 16,5,CRUMBLE,5
+.byte 17,4, DOT, 3
+
+
+
+
+// door location
+.byte 31
+.byte 10
+
+
+// player start pos
+.byte 1,22
+
+
+
+// ------------------------------------------------------------ //
+
 level4data:
 // sprite palette
 .byte 0
@@ -245,7 +298,7 @@ level5data:
 // tile palette
 .byte 0
 // line count
-.byte 10
+.byte 12
 // enemy count
 .byte 0
 
@@ -261,6 +314,8 @@ level5data:
 .byte 13,11,BLOCK,14
 
 .byte 18,15,DOT,4
+.byte 19,17,SPIKE_UP,2
+.byte 19,18,BLOCK,2
 
 
 .byte 1, 21, TILE_BLANK_RED, 8
@@ -336,7 +391,7 @@ level7data:
 // tile palette
 .byte 0
 // line count
-.byte 18
+.byte 19
 // enemy count
 .byte 1
 
@@ -351,12 +406,13 @@ level7data:
 .byte 14,5,BLOCK,11
 
 .byte 18,13,BLOCK,4
+.byte 18,21,BLOCK,4
 
 .byte 30,11,DOT,2
 .byte 29,12,TILE_BLANK_RED,4
 
-.byte 35,16,DOT,2
-.byte 34,17,TILE_BLANK_GREEN,4
+.byte 36,16,DOT,2
+.byte 35,17,TILE_BLANK_GREEN,4
 
 
 .byte 28,19,DOT,2
@@ -366,8 +422,8 @@ level7data:
 .byte 10,19,DOT,2
 .byte 9,20,TILE_BLANK_GREEN,4
 
-.byte 3,16,DOT,2
-.byte 2,17,TILE_BLANK_RED,4
+.byte 2,16,DOT,2
+.byte 1,17,TILE_BLANK_RED,4
 
 
 .byte 8,11,DOT,2
@@ -522,6 +578,10 @@ levels:
 
 .byte <level3data
 .byte >level3data
+
+.byte <level4adata
+.byte >level4adata
+
 
 .byte <level4data
 .byte >level4data
