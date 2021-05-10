@@ -246,7 +246,7 @@ level4data:
 // line data
 // col, row, type, length  | orientation
 
-.byte 14,23, SPIKE_UP,13
+.byte 14,23, SPIKE_UP,12
 .byte 1,20, BLOCK, 33
 .byte 34,14, BLOCK, 7 | VERTICAL
 
@@ -596,8 +596,6 @@ levels:
 .byte <level6data
 .byte >level6data
 
-.byte <level7data
-.byte >level7data
 
 .byte <level8data
 .byte >level8data
@@ -605,3 +603,5 @@ levels:
 .byte <level9data
 .byte >level9data
 
+.byte <level7data
+.byte >level7data
