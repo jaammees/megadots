@@ -74,10 +74,20 @@ check_boost_counter:
 	bne continue_boost
 	
 	// boost has just finished, reset things
-
 continue_boost:
+	// check not boosting into wall
+	lda actor_char_left
+	cmp #TILE_BLOCK
+	beq check_boost_counter_done
+	lda actor_char_right
+	cmp #TILE_BLOCK
+	beq check_boost_counter_done
+
+
 	jmp player_controls_done
 check_boost_counter_done:
+	lda #$0
+	sta player_boost_counter
 
 	// set default frame, in air sprite
 	lda #FRAME_JUMP

@@ -93,6 +93,7 @@ StartLevel: {
   lda #00
 init_actors_loop:
   sta actor_type,x
+  sta actor_direction,x
   dex
   bne init_actors_loop
   
@@ -375,10 +376,17 @@ setup_enemy_read_data:
   lda (level_data_low),y
   sta row
 
+
   // store the actor position
   jsr ActorRowColToPosition
   
-  lda #$01
+
+  iny
+  lda (level_data_low),y
+//  lda #00
+  sta actor_direction,x
+
+  lda #$00
   sta actor_sx,x
   
   lda #ENEMY_SPRITE
@@ -388,7 +396,7 @@ setup_enemy_read_data:
   sta actor_type,x
 
   // update level data pointers  
-  lda #02
+  lda #03
   clc
   adc level_data_low
   sta level_data_low

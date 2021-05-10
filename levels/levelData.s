@@ -168,9 +168,9 @@ level3data:
 .byte 22
 .byte 21
 
-// 2 enemies
-.byte 5,10
-.byte 30,10
+// 2 enemies: x,y,direction 0 = left, 1 = right
+.byte 5,10,0
+.byte 30,10,0
 
 // player start pos
 .byte 3,4
@@ -253,7 +253,7 @@ level4data:
 
 .byte 38,19,DOT,1
 .byte 35,17,DOT,1
-.byte 38,15,DOT,1
+.byte 38,14,DOT,1
 
 .byte 23,14,BLOCK,11
 .byte 23,13,SPIKE_UP,11
@@ -282,8 +282,8 @@ level4data:
 .byte 27
 .byte 17
 
-// 1 enemy
-.byte 5,10
+// 1 enemy, x, y, direction
+.byte 5,10,0
 
 // player start pos
 .byte 2,22
@@ -373,10 +373,10 @@ level6data:
 .byte 19
 .byte 21
 
-// enemies
-.byte 18,10
-.byte 22,10
-.byte 26,10
+// enemies: x, y, direction
+.byte 18,10,0
+.byte 22,10,0
+.byte 26,10,0
 
 // player start pos
 .byte 2,3
@@ -435,7 +435,7 @@ level7data:
 .byte 10
 
 // enemies
-.byte 20,2
+.byte 20,2,1
 
 // player start pos
 .byte 21,9
@@ -489,7 +489,7 @@ level8data:
 .byte 17
 
 // enemies
-.byte 2,2
+.byte 2,2,0
 
 // player start pos
 .byte 2,5
@@ -513,7 +513,7 @@ level9data:
 // col, row, type, length  | orientation
 
 //.byte 10, 23, BLOCK, 20
-.byte 14, 23, DOT, 2
+.byte 10, 23, DOT, 2
 
 .byte 20, 2, TILE_BLOCK_GREEN, 17 | VERTICAL
 .byte 20, 18, BLOCK, 5 | VERTICAL
@@ -562,7 +562,7 @@ level9data:
 .byte 21
 
 // enemies
-.byte 3,9
+.byte 3,9,0
 
 // player start pos
 .byte 5,20
