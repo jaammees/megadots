@@ -16,7 +16,7 @@
 // 21 sprites facing right, then 21 facing left
 // facing right is direction 0
 // if facing left need to add offset to get sprite
-.const SPRITE_DIRECTION_OFFSET  = 21 * 2
+.const SPRITE_DIRECTION_OFFSET  = 24 * 2
 
 // memory location for right facing sprites
 .const SPRITES_FLIPPED_LOCATION = $2000 + SPRITE_DIRECTION_OFFSET * 64
@@ -29,16 +29,18 @@
 .const FRAME_WALK            = FRAME_BLINK + (1 * 2)
 .const FRAME_JUMP            = FRAME_WALK  + (3 * 2)
 .const FRAME_SCRAPE          = FRAME_JUMP  + (1 * 2)
+
 .const FRAME_BOOST_X         = FRAME_SCRAPE + (1 * 2)
 .const FRAME_BOOST_Y         = FRAME_BOOST_X + (1 * 2)
 
 .const SHADOW_SPRITE         = FRAME_BOOST_X + (1 * 2)
 
-.const FRAME_LAND_EFFECT     = FRAME_BOOST_X + (2 * 2)
-.const FRAME_WALLJUMP_EFFECT = FRAME_BOOST_X + (5 * 2)
-.const FRAME_BOOST_EFFECT    = FRAME_BOOST_X + (7 * 2)
+.const FRAME_LAND_EFFECT       = FRAME_BOOST_X + (2 * 2)
+.const FRAME_WALLJUMP_EFFECT   = FRAME_LAND_EFFECT + (3 * 2) // FRAME_BOOST_X + (5 * 2)
+.const FRAME_WALLSCRAPE_EFFECT = FRAME_WALLJUMP_EFFECT + (3 * 2) //FRAME_BOOST_X + (7 * 2)
+.const FRAME_BOOST_EFFECT      = FRAME_WALLSCRAPE_EFFECT + (3 * 2) //FRAME_BOOST_X + (7 * 2)
 
-.const ENEMY_SPRITE          = FRAME_BOOST_EFFECT + (4 * 2)
+.const ENEMY_SPRITE          = FRAME_BOOST_EFFECT + (3 * 2)
 
 
 .const JUMP_SPRITE           = FRAME_LAND_EFFECT
@@ -417,6 +419,7 @@ animate_actors_check_frame:
 	// turn effect actor off
 	lda #NONE
 	sta actor_type,x
+  sta actor_base_frame,x
 	
 animate_actors_next:
 	dex

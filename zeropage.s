@@ -47,6 +47,8 @@ player_wall_jump_counter:  .byte $0
 player_can_boost:          .byte $0
 player_boost_counter:      .byte $0
 player_touching_door:      .byte $0
+blink_timer:               .byte $0
+blink_time:                .byte $0
 
 
 // used in levels.s

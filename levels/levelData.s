@@ -1,7 +1,7 @@
 // data making up each of the levels
 
 
-.const LEVEL_COUNT    = 11
+.const LEVEL_COUNT    = 12
 
 
 .const VERTICAL     = $80
@@ -123,7 +123,7 @@ level2data:
 .byte 1,23, SPIKE_UP, 38
 
 // door location
-.byte 36
+.byte 37
 .byte 3
 
 // no enemies
@@ -222,8 +222,86 @@ level4adata:
 
 
 // door location
-.byte 31
+.byte 32
 .byte 10
+
+
+// player start pos
+.byte 1,22
+
+
+
+
+// ------------------------------------------------------------ //
+
+level4bdata:
+// sprite palette
+.byte 0
+// tile palette
+.byte 0
+// line count
+.byte 29
+// enemy count
+.byte 0
+
+// line data
+// col, row, type, length  | orientation
+
+.byte 15,20, DOT, 3
+.byte 14,21, TILE_BLANK_RED,5
+
+.byte 36,20, DOT,1
+.byte 34,21, TILE_BLOCK_GREEN, 5
+.byte 7,23, TILE_SWITCH_UP_RED, 1
+
+.byte 25,23, TILE_SWITCH_DOWN_GREEN,1
+
+
+.byte 28,15,TILE_UP,1
+
+.byte 23,16,SPIKE_RIGHT, 1
+.byte 24,16,BLOCK, 10
+.byte 24,17, SPIKE_DOWN, 10
+.byte 34,16,SPIKE_LEFT, 1
+
+
+.byte 3, 14, TILE_SWITCH_DOWN_GREEN, 1
+.byte 8, 14, TILE_SWITCH_UP_RED, 1
+.byte 1,15,BLOCK, 15
+.byte 16,15, SPIKE_LEFT, 1
+.byte 1,16,SPIKE_DOWN,15
+
+
+.byte 14,8,TILE_SWITCH_UP_RED, 1
+.byte 1,9, TILE_BLOCK_GREEN, 10
+.byte 11,9,BLOCK, 12
+
+
+.byte 36,11,TILE_BLOCK_GREEN,3
+.byte 38,10,DOT,1
+
+
+
+
+.byte 28, 4, DOT, 2
+.byte 26, 5, TILE_BLOCK, 5
+
+.byte 16, 2, TILE_DOT, 5
+
+.byte 6, 3, TILE_SWITCH_UP_RED, 1
+.byte 5, 4, TILE_BLOCK, 8
+.byte 13, 4, TILE_SPIKE_LEFT, 1
+.byte 4, 4, TILE_SPIKE_RIGHT, 1
+
+.byte 1, 2, DOT, 1
+
+
+
+
+
+// door location
+.byte 1
+.byte 6
 
 
 // player start pos
@@ -408,8 +486,6 @@ level7data:
 .byte 18,13,BLOCK,4
 .byte 18,21,BLOCK,4
 
-.byte 30,11,DOT,2
-.byte 29,12,TILE_BLANK_RED,4
 
 .byte 36,16,DOT,2
 .byte 35,17,TILE_BLANK_GREEN,4
@@ -426,8 +502,11 @@ level7data:
 .byte 1,17,TILE_BLANK_RED,4
 
 
+.byte 30,11,DOT,2
+.byte 28,12,TILE_BLANK_RED,6
+
 .byte 8,11,DOT,2
-.byte 7,12,TILE_BLANK_GREEN,4
+.byte 6,12,TILE_BLANK_GREEN,6
 
 
 // door location
@@ -582,6 +661,8 @@ levels:
 .byte <level4adata
 .byte >level4adata
 
+.byte <level4bdata
+.byte >level4bdata
 
 .byte <level4data
 .byte >level4data

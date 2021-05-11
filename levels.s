@@ -77,12 +77,13 @@ next_level_done:
 
 // start a level
 StartLevel: {
-  lda #GAME_STATE_PLAY
+  lda #GAME_STATE_PLAY 
   sta game_state
   // initialise dots to 0
   lda #$0
   sta dot_count
   sta player_touching_door
+  sta blink_time
 
   // reset switch type
   lda #$ff

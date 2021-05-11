@@ -221,8 +221,17 @@ switch_up_collision:
   lda (address_low),y
   
   cmp #TILE_SOLID
-  bne check_tile_next
+  beq switch_up_press
+  cmp #TILE_BLOCK_RED
+  beq switch_up_press
+  cmp #TILE_BLOCK_GREEN
+  beq switch_up_press
+  cmp #TILE_BLOCK_BLUE
+  beq switch_up_press
 
+
+  jmp check_tile_next
+switch_up_press:
   lda #(switchsound - soundsstart)
   jsr QueueSound
 

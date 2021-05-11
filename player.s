@@ -57,6 +57,8 @@ set_player_can_boost_done:
 // respond to player controls
 PlayerControls: {
 
+	dec blink_timer
+
 adjust_coyote:
 	// player can start a jump when coyote counter is not zero
   dec player_coyote_counter
@@ -109,9 +111,11 @@ test_on_ground:
 	lda #FRAME_LAND_EFFECT
 	jsr player_add_effect
 
+
+
 actor_is_on_ground:
 
-	
+  // player is on the ground..
 
 	lda #01
 	sta actor_on_ground
@@ -130,8 +134,26 @@ actor_is_on_ground:
 	lda #PLAYER_GROUND_FORCE_NO_INPUT
 	sta actor_force_no_input
 	
-	lda #FRAME_STAND
-	sta actor_base_frame
+//	lda #FRAME_STAND
+//	sta actor_base_frame
+
+  lda blink_time
+  bne blink_frame
+  
+  lda #FRAME_STAND
+  sta actor_base_frame
+  
+  lda blink_timer
+  bne test_on_ground_done
+  
+  lda #$05
+  sta blink_time
+	
+blink_frame:
+  lda #FRAME_BLINK
+  sta actor_base_frame
+  dec blink_time
+
 
 test_on_ground_done:
 	jmp check_joystick
@@ -168,6 +190,10 @@ set_gravity_touching_wall:
 	
 	lda #FRAME_SCRAPE
 	sta actor_base_frame
+	
+	lda #FRAME_WALLSCRAPE_EFFECT
+	jsr player_add_effect
+
 	
 // move this to general actor code
 apply_gravity:
@@ -550,6 +576,10 @@ set_speed_to_zero:
 // use actor 7 to add visual effects
 // jump, land, boost
 player_add_effect:
+	cmp actor_base_frame + 7
+	beq player_add_effect_done
+
+
 	sta actor_base_frame + 7
 	lda #EFFECTS
 	sta actor_type + 7
@@ -573,9 +603,11 @@ player_add_effect:
 	sta actor_yl + 7
 	lda actor_yh
 	sta actor_yh + 7
-	
+
+player_add_effect_done:	
 	lda actor_direction
 	sta actor_direction + 7
+
 
 	rts
 }
