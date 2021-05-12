@@ -180,6 +180,83 @@ level3data:
 
 // ------------------------------------------------------------ //
 
+level3adata:
+// sprite palette
+.byte 0
+// tile palette
+.byte 0
+// line count
+.byte 30
+// enemy count
+.byte 0
+
+// line data
+// col, row, type, length | orientation
+
+
+.byte 4,2, BLOCK, 6 | VERTICAL
+.byte 4,11, BLOCK, 5 | VERTICAL
+
+.byte 2,7, DOT, 5 | VERTICAL
+.byte 2,14,TILE_UP,1
+.byte 1,15,BLOCK, 3
+
+.byte 7,4, BLOCK, 4 | VERTICAL
+.byte 7,11, BLOCK, 5 | VERTICAL
+.byte 7,10, SPIKE_UP, 3
+.byte 14,10,TILE_UP,2
+.byte 8,11,BLOCK,8
+
+
+.byte 27,7,TILE_UP,2
+.byte 20,8, BLOCK, 15
+.byte 20,9,BLOCK,4 | VERTICAL
+//.byte 32,2,SPIKE_RIGHT,6 | VERTICAL
+.byte 34,2,BLOCK,6 | VERTICAL
+
+
+.byte 10,3,TILE_SWITCH_UP_RED, 1
+.byte 8,4, BLOCK, 14
+.byte 22,4,SPIKE_LEFT, 1
+
+//.byte 17,17, DOT, 12
+.byte 17,19,TILE_UP,1
+
+
+//.byte 12,19,DOT, 5
+
+//.byte 18,19,TILE_UP,1
+
+.byte 10,14,TILE_SWITCH_DOWN_GREEN,1
+.byte 8, 15, TILE_BLOCK,4
+
+.byte 16,11,TILE_BLANK_RED,4
+.byte 20,13,TILE_BLANK_RED,7|VERTICAL
+.byte 10,20,TILE_BLANK_RED,10
+
+.byte 24,19, DOT,4
+.byte 20,20,TILE_BLOCK_GREEN,10
+.byte 1,23, SPIKE_UP, 38
+//.byte 27,23, SPIKE_UP, 12
+
+.byte 38, 2, SPIKE_RIGHT, 22 | VERTICAL
+
+.byte 20,12,BLOCK,5
+
+
+.byte 34,16,TILE_UP,2
+.byte 34,17,BLOCK,2
+// door location
+.byte 22
+.byte 9
+
+// 2 enemies: x,y,direction 0 = left, 1 = right
+
+// player start pos
+.byte 1,3
+
+// ------------------------------------------------------------ //
+
 level4adata:
 // sprite palette
 .byte 0
@@ -240,7 +317,7 @@ level4bdata:
 // tile palette
 .byte 0
 // line count
-.byte 29
+.byte 31
 // enemy count
 .byte 0
 
@@ -284,7 +361,10 @@ level4bdata:
 
 
 .byte 28, 4, DOT, 2
+
+.byte 25,5,TILE_SPIKE_RIGHT,1
 .byte 26, 5, TILE_BLOCK, 5
+.byte 31,5,TILE_SPIKE_LEFT,1
 
 .byte 16, 2, TILE_DOT, 5
 
@@ -634,7 +714,7 @@ level9data:
 .byte 21,2, TILE_BLOCK, 12 | VERTICAL
 .byte 26,4, TILE_BLANK_RED, 12
 .byte 22,9, TILE_BLOCK_GREEN, 4 
-.byte 30,23, TILE_UP, 3
+.byte 31,23, TILE_UP, 1
 
 // door location
 .byte 24
@@ -657,6 +737,10 @@ levels:
 
 .byte <level3data
 .byte >level3data
+
+.byte <level3adata
+.byte >level3adata
+
 
 .byte <level4adata
 .byte >level4adata
