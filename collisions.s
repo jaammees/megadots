@@ -159,7 +159,7 @@ check_dots_left:
 
   lda dot_count
   bmi all_dots_gone // just in case
-  bne check_collision_switch
+  beq check_collision_switch
   
   // all dots gone  
 all_dots_gone:  
@@ -210,8 +210,9 @@ switch_up_collision:
 
   // if someone else pushed switch, thats it for this test
   lda collision_switch
-  bne check_tile_next
-
+  beq !+
+  jmp check_tile_next
+!:
   // tile below needs to be solid
   inc row
   // call the col, row to screen address routine
@@ -260,14 +261,16 @@ check_door_collision:
 door_collision:
   // only want to do for player 1
   txa 
-  bne check_tile_next
+  beq !+
+  jmp check_tile_next
+!:  
   lda #$01 
   sta player_touching_door
 
 
 check_up_collision:
   cmp #TILE_UP 
-  bne check_tile_next
+  bne check_tile_left_collision
   
 	lda #$1
 	sta animated_tile_time
@@ -293,6 +296,71 @@ check_up_collision:
   lda #(bouncesound - soundsstart)
   jsr QueueSound
 
+check_tile_left_collision:
+  cmp #TILE_LEFT
+  bne check_tile_right_collision
+  
+	lda #$1
+	sta animated_tile_time
+	lda #TILE_LEFT_1
+  sta (address_low),y
+
+	jsr AddAnimatedTile
+
+  lda #-UP_TILE_SPEED
+  sta actor_sx,x
+
+  lda #1
+  sta actor_direction,x
+ 
+	cpx #0
+	bne !+
+  // reset the boost
+  lda #$01
+  jsr SetPlayerCanBoost
+  
+  lda #12
+  sta player_boost_counter
+  lda #0
+	sta actor_sy,x
+//  jsr reset_shake
+!:
+ 
+  lda #(bouncesound - soundsstart)
+  jsr QueueSound
+
+check_tile_right_collision:
+  cmp #TILE_RIGHT
+  bne check_tile_next
+  
+	lda #$1
+	sta animated_tile_time
+	lda #TILE_RIGHT_1
+  sta (address_low),y
+
+	jsr AddAnimatedTile
+
+  lda #UP_TILE_SPEED
+  sta actor_sx,x
+
+  lda #1
+  sta actor_direction,x
+ 
+	cpx #0
+	bne !+
+  // reset the boost
+  lda #$01
+  jsr SetPlayerCanBoost
+  
+  lda #12
+  sta player_boost_counter
+  lda #0
+	sta actor_sy,x
+//  jsr reset_shake
+!:
+ 
+  lda #(bouncesound - soundsstart)
+  jsr QueueSound
 
 
 check_tile_next:

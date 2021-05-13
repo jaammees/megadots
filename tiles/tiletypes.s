@@ -92,6 +92,16 @@
 .const TILE_UP_2      = TILE_UP + 2 //172
 .const TILE_UP_3      = TILE_UP + 3 //173
 
+.const TILE_LEFT      = FIRST_TILE + 53
+.const TILE_LEFT_1    = TILE_LEFT + 1
+.const TILE_LEFT_2    = TILE_LEFT + 2
+.const TILE_LEFT_3    = TILE_LEFT + 3
+
+.const TILE_RIGHT     = FIRST_TILE + 107
+.const TILE_RIGHT_1   = TILE_RIGHT + 1
+.const TILE_RIGHT_2   = TILE_RIGHT + 2
+.const TILE_RIGHT_3   = TILE_RIGHT + 3
+
 
 .const TILE_SPIKE        = FIRST_TILE + 49
 .const TILE_SPIKE_UP     = TILE_SPIKE + 0

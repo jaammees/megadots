@@ -174,8 +174,6 @@ animated_tile_check_crumble_4:
   sta animated_tile,x
   jmp animate_tiles_next
 
-
-
 animate_tile_check_tile_up_1:
 	cmp #TILE_UP_1
 	bne animate_tile_check_tile_up_2
@@ -200,12 +198,79 @@ animate_tile_check_tile_up_2:
 	
 animate_tile_check_tile_up_3:
 	cmp #TILE_UP_3
-	bne animate_tile_check_emitter_up
+	bne animate_tile_check_tile_left_1
 	
 	lda #TILE_UP
 	sta (address_low),y
 	lda #$0
 	sta animated_tile,x
+	jmp animate_tiles_next
+
+animate_tile_check_tile_left_1:
+	cmp #TILE_LEFT_1
+	bne animate_tile_check_tile_left_2
+	
+	lda #TILE_LEFT_2
+	sta (address_low),y
+	sta animated_tile,x
+	lda #$1
+	sta animated_tile_counter,x
+	jmp animate_tiles_next
+
+animate_tile_check_tile_left_2:
+	cmp #TILE_LEFT_2
+	bne animate_tile_check_tile_left_3
+	
+	lda #TILE_LEFT_3
+	sta (address_low),y
+	sta animated_tile,x
+	lda #$10
+	sta animated_tile_counter,x
+	jmp animate_tiles_next
+	
+animate_tile_check_tile_left_3:
+	cmp #TILE_LEFT_3
+	bne animate_tile_check_tile_right_1
+	
+	lda #TILE_LEFT
+	sta (address_low),y
+	lda #$0
+	sta animated_tile,x
+	jmp animate_tiles_next
+	
+
+animate_tile_check_tile_right_1:
+	cmp #TILE_RIGHT_1
+	bne animate_tile_check_tile_right_2
+	
+	lda #TILE_RIGHT_2
+	sta (address_low),y
+	sta animated_tile,x
+	lda #$1
+	sta animated_tile_counter,x
+	jmp animate_tiles_next
+
+animate_tile_check_tile_right_2:
+	cmp #TILE_RIGHT_2
+	bne animate_tile_check_tile_right_3
+	
+	lda #TILE_RIGHT_3
+	sta (address_low),y
+	sta animated_tile,x
+	lda #$10
+	sta animated_tile_counter,x
+	jmp animate_tiles_next
+	
+animate_tile_check_tile_right_3:
+	cmp #TILE_RIGHT_3
+	bne animate_tile_check_emitter_up
+	
+	lda #TILE_RIGHT
+	sta (address_low),y
+	lda #$0
+	sta animated_tile,x
+	jmp animate_tiles_next
+
 
 animate_tile_check_emitter_up:
 	cmp #TILE_EMITTER_UP

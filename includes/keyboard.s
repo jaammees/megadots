@@ -54,12 +54,30 @@ CheckKeyboard: {
 	lda #%11111101
 	sta PRA
 	
+	// check s key
+	lda PRB
+	bit #%00100000
+	bne !+
+	lda #01
+	sta z_key_pressed
+!:	
+
+/*
+	// check a key
+	lda PRB
+	bit #%00000100
+	bne !+
+	lda #$01
+	sta z_key_pressed
+!:	
+*/
 	// check z key
 	lda PRB
 	bit #%00010000
 	bne !+
 	// z key
-	inc z_key_pressed
+	lda #$01
+	sta z_key_pressed
 !:
 	// check left shift
 	lda PRB
@@ -125,6 +143,17 @@ left_key_is_down:
 !:	
 
 
+
+	lda #%11101111
+	sta PRA
+	// k key
+	lda PRB
+	and #%00100000
+	bne !+
+	lda #$01
+	sta left_key_pressed
+!:	
+
   // . and ,
   lda #%11011110
   sta PRA
@@ -141,19 +170,26 @@ left_key_is_down:
 	bne !+
 	lda down_key_pressed
 	bne !+
-
-  lda #$01
-	
+  lda #$01	
   sta left_key_pressed
 !:
+	lda PRB 
+	bit #%00000100
+	bne !+
+	lda #$01
+	sta right_key_pressed
+!:	
+
 
   // . key
+	/*
   lda PRB
   bit #%00010000
   bne !+
   lda #$01
   sta right_key_pressed
 !:  
+*/
 
   // function keys
 	lda #%11111110

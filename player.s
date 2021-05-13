@@ -57,6 +57,7 @@ set_player_can_boost_done:
 // respond to player controls
 PlayerControls: {
 
+
 	dec blink_timer
 
 adjust_coyote:
@@ -78,13 +79,20 @@ check_boost_counter:
 	// boost has just finished, reset things
 continue_boost:
 	// check not boosting into wall
+
+	lda actor_direction
+	cmp #1
+	bne !+
 	lda actor_char_left
 	cmp #TILE_BLOCK
 	beq check_boost_counter_done
+	jmp player_controls_done
+!:
+
+
 	lda actor_char_right
 	cmp #TILE_BLOCK
 	beq check_boost_counter_done
-
 
 	jmp player_controls_done
 check_boost_counter_done:
@@ -243,7 +251,7 @@ player_check_start_jump:
 
 	lda #$01
 	sta player_button_down
-	jsr NextLevel
+	jsr EnterDoor
 	jmp player_controls_done
 !:
 
@@ -418,6 +426,8 @@ check_wall_jump_counter:
 	beq check_wall_jump_counter_done
 	dec player_wall_jump_counter
 	jmp check_joystick_up
+
+
 check_wall_jump_counter_done:
 
 
@@ -468,13 +478,14 @@ check_joystick_right:
   lda JOYSTICK
   and #JOYSTICK_RIGHT
 	beq joystick_is_right
+	
 	lda right_key_pressed
 	bne joystick_is_right
-
 
   jmp joystick_not_left_or_right
 
 joystick_is_right:
+
   lda #$00
   sta actor_direction
 
@@ -533,7 +544,7 @@ joystick_is_down:
   // if touching door, could be trying to exit
   lda player_touching_door 
   beq player_controls_done
-  jsr NextLevel
+  jsr EnterDoor
   
 player_controls_done:
   rts

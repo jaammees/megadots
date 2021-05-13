@@ -31,6 +31,9 @@ Entry: {
   lda #$0
 	sta $d020
 
+	lda #$0
+	sta title_show_times
+
 	lda #STARTING_LEVEL
   sta level_current
   jsr StartLevel
@@ -60,6 +63,10 @@ game_dead:
 	jmp game_play_end
 
 game_play:
+	lda level_current
+	beq increase_time_done
+	jsr StatusIncreaseTime
+increase_time_done:
 	jsr PlayerControls
 	jsr MoveActors
 	

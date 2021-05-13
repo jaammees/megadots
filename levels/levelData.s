@@ -37,7 +37,7 @@ level0data:
 .byte 20
 
 // player start pos
-.byte 4,20
+.byte 4,20,0
 
 
 // -------------------------------------------//
@@ -81,7 +81,7 @@ level1data:
 // no enemies
 
 // player start pos
-.byte 3,16
+.byte 3,16,0
 
 
 // ------------------------------------------------------------ //
@@ -129,7 +129,7 @@ level2data:
 // no enemies
 
 // player start pos
-.byte 3,4
+.byte 3,4,0
 
 
 
@@ -173,7 +173,7 @@ level3data:
 .byte 30,10,0
 
 // player start pos
-.byte 3,4
+.byte 3,4,0
 
 
 
@@ -186,7 +186,7 @@ level3adata:
 // tile palette
 .byte 0
 // line count
-.byte 30
+.byte 31
 // enemy count
 .byte 0
 
@@ -208,10 +208,12 @@ level3adata:
 .byte 8,11,BLOCK,8
 
 
-.byte 27,7,TILE_UP,2
-.byte 20,8, BLOCK, 15
+.byte 27,7,TILE_UP,3
+.byte 20,8, BLOCK, 19
 .byte 20,9,BLOCK,4 | VERTICAL
 //.byte 32,2,SPIKE_RIGHT,6 | VERTICAL
+
+.byte 33,2,TILE_LEFT, 1 | VERTICAL
 .byte 34,2,BLOCK,6 | VERTICAL
 
 
@@ -220,13 +222,14 @@ level3adata:
 .byte 22,4,SPIKE_LEFT, 1
 
 //.byte 17,17, DOT, 12
-.byte 17,19,TILE_UP,1
+.byte 18,19,TILE_UP,2
 
 
 //.byte 12,19,DOT, 5
 
 //.byte 18,19,TILE_UP,1
 
+//.byte 8,14,TILE_RIGHT,1
 .byte 10,14,TILE_SWITCH_DOWN_GREEN,1
 .byte 8, 15, TILE_BLOCK,4
 
@@ -239,7 +242,7 @@ level3adata:
 .byte 1,23, SPIKE_UP, 38
 //.byte 27,23, SPIKE_UP, 12
 
-.byte 38, 2, SPIKE_RIGHT, 22 | VERTICAL
+.byte 38, 9, SPIKE_RIGHT, 14 | VERTICAL
 
 .byte 20,12,BLOCK,5
 
@@ -247,13 +250,13 @@ level3adata:
 .byte 34,16,TILE_UP,2
 .byte 34,17,BLOCK,2
 // door location
-.byte 22
+.byte 21
 .byte 9
 
 // 2 enemies: x,y,direction 0 = left, 1 = right
 
 // player start pos
-.byte 1,3
+.byte 2,3,0
 
 // ------------------------------------------------------------ //
 
@@ -304,7 +307,7 @@ level4adata:
 
 
 // player start pos
-.byte 1,22
+.byte 1,22,0
 
 
 
@@ -385,7 +388,7 @@ level4bdata:
 
 
 // player start pos
-.byte 1,22
+.byte 1,22,0
 
 
 
@@ -444,7 +447,7 @@ level4data:
 .byte 5,10,0
 
 // player start pos
-.byte 2,22
+.byte 2,22,0
 
 
 
@@ -487,7 +490,7 @@ level5data:
 
 
 // player start pos
-.byte 2,3
+.byte 2,3,0
 
 
 
@@ -537,7 +540,7 @@ level6data:
 .byte 26,10,0
 
 // player start pos
-.byte 2,3
+.byte 2,3,0
 
 
 
@@ -597,7 +600,7 @@ level7data:
 .byte 20,2,1
 
 // player start pos
-.byte 21,9
+.byte 21,9,0
 
 
 
@@ -651,7 +654,7 @@ level8data:
 .byte 2,2,0
 
 // player start pos
-.byte 2,5
+.byte 2,5,0
 
 
 
@@ -724,7 +727,7 @@ level9data:
 .byte 3,9,0
 
 // player start pos
-.byte 5,20
+.byte 5,20,0
 
 
 levels:

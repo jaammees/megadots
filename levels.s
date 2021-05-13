@@ -55,10 +55,36 @@ door_status_done:
   rts
 }
 
-NextLevel: {
-  // to go to next level, dot count needs to be zero
+EnterDoor: {
+  phy
+  // dots need to be zero
   lda dot_count
-  bne next_level_done
+  bne enter_door_done
+
+  // 4 rows below door top = 3 * 40
+  ldy #120
+  lda (door_address_low),y
+  cmp #TILE_BLOCK
+  beq go_through_door
+  cmp #TILE_BLOCK_RED
+  beq go_through_door
+  cmp #TILE_BLOCK_GREEN
+  beq go_through_door
+  cmp #TILE_BLOCK_BLUE
+  beq go_through_door
+  jmp enter_door_done
+
+  // door needs to be on a solid
+go_through_door:
+  ply
+  jmp NextLevel
+
+enter_door_done:
+  ply
+  rts
+}
+
+NextLevel: {
 
   jsr StatusIncreaseLevel 
   inc level_current
@@ -66,8 +92,14 @@ NextLevel: {
   lda level_current
   cmp #LEVEL_COUNT
   bne !+
+
+  // reached the end, go back to the start!
   lda #0
   sta level_current
+  jsr StatusResetTime
+  jsr StatusResetLevel
+  lda #1
+  sta title_show_times
 !:
   jsr StartLevel
 next_level_done:
@@ -427,6 +459,11 @@ SetupPlayer: {
   iny
   lda (level_data_low),y
   sta row
+
+  iny
+  lda (level_data_low),y
+  sta actor_direction
+
 
   jsr ActorRowColToPosition
 
