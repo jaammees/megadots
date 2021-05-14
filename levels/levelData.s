@@ -1,7 +1,7 @@
 // data making up each of the levels
 
 
-.const LEVEL_COUNT    = 12
+.const LEVEL_COUNT    = 14
 
 
 .const VERTICAL     = $80

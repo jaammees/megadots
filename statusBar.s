@@ -36,6 +36,9 @@ player_last_time:
 player_best_time:
 .text "9999:99@"
 
+player_last_is_best:
+.byte $0
+
 
 StatusResetTime: {
   phy
@@ -49,6 +52,37 @@ StatusResetTime: {
   sta player_status_seconds,y
   dey 
   bpl !-
+
+
+
+
+  // check if a best time
+  lda #<player_last_time
+  sta address_low
+  lda #>player_last_time
+  sta address_high
+
+  lda #<player_best_time
+  sta address_low_2
+  lda #>player_best_time
+  sta address_high_2
+
+  jsr CompareTimes
+  sta player_last_is_best
+  cmp #1
+  bne reset_time_done
+  
+  // its a best time, copy last time into best time
+  ldy #6
+!:
+  lda player_last_time,y
+  sta player_best_time,y
+  dey 
+  bpl !-
+
+
+reset_time_done:
+
   ply
   rts
 }
@@ -72,6 +106,39 @@ StatusIncreaseTime: {
   jsr StatusIncreaseNumber
 !:
 
+  ply
+  rts
+}
+
+// time1 in address_low
+// time2 in address_high
+CompareTimes: {
+  phy
+
+  ldy #0
+!:
+  lda (address_low),y
+  cmp (address_low_2),y
+//  lda player_last_time,y
+//  cmp player_best_time,y
+  beq next_digit
+  bmi time2_bigger
+  bpl time1_bigger
+  
+
+next_digit:  
+  iny
+  cpy #07
+  bne !-
+
+time1_bigger:
+  lda #0
+  ply
+  rts
+
+time2_bigger:
+  inc $d020
+  lda #1
   ply
   rts
 }
