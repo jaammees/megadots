@@ -133,6 +133,86 @@ level2data:
 
 
 
+// ------------------------------------------------------------ //
+
+level2adata:
+// sprite palette
+.byte 0
+// tile palette
+.byte 0
+// line count
+.byte 34
+// enemy count
+.byte 0
+
+// line data
+// col, row, type, length | orientation
+
+.byte 15, 17, BLOCK, 3
+.byte 21, 17, BLOCK, 3
+
+.byte 12, 19, SPIKE_UP, 15
+.byte 11, 20, BLOCK, 17
+
+.byte 26, 13, SPIKE_RIGHT, 6 | VERTICAL
+.byte 27, 13, BLOCK, 7 | VERTICAL
+
+
+.byte 11, 6, BLOCK, 17
+.byte 12, 7, SPIKE_DOWN, 15 
+.byte 11, 7, BLOCK, 13 | VERTICAL
+.byte 12, 8, SPIKE_LEFT, 11 | VERTICAL
+
+
+.byte 26, 8, SPIKE_RIGHT, 1 | VERTICAL
+.byte 27, 7, BLOCK, 2 | VERTICAL
+
+.byte 22, 9, DOT, 4 | VERTICAL
+.byte 22, 16, TILE_UP, 1
+
+.byte 30, 7, BLOCK, 17 | VERTICAL
+.byte 28, 6, BLOCK, 3
+
+
+.byte 6, 23, TILE_UP, 1
+.byte 1, 17, BLOCK, 2
+
+
+.byte 6, 13, TILE_UP, 1
+.byte 5, 14, BLOCK, 3
+
+.byte 20, 5, DOT, 3
+.byte 1, 5, TILE_RIGHT, 1
+.byte 2, 5, DOT, 1
+.byte 1, 6, BLOCK, 2
+
+
+.byte 27, 5, TILE_UP, 1
+
+.byte 36, 6, BLOCK, 16 | VERTICAL
+.byte 37, 7, SPIKE_LEFT, 14 | VERTICAL
+.byte 38, 10, DOT, 10 | VERTICAL
+.byte 30, 5, SPIKE_UP, 7
+.byte 31, 6, BLOCK, 5
+
+
+.byte 31, 15, TILE_UP, 1
+.byte 31, 16, BLOCK, 1
+
+
+.byte 35, 11, SPIKE_RIGHT, 4 | VERTICAL
+.byte 33, 10, BLOCK, 3
+
+// door location
+.byte 34
+.byte 7
+
+// no enemies
+
+// player start pos
+.byte 16,15,0
+
+
 
 // ------------------------------------------------------------ //
 
@@ -733,6 +813,11 @@ level9data:
 levels:
 .byte <level0data
 .byte >level0data
+
+
+.byte <level2adata
+.byte >level2adata
+
 
 .byte <level1data
 .byte >level1data

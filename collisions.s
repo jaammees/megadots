@@ -159,7 +159,7 @@ check_dots_left:
 
   lda dot_count
   bmi all_dots_gone // just in case
-  beq check_collision_switch
+  bne check_collision_switch
   
   // all dots gone  
 all_dots_gone:  

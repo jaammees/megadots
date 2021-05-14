@@ -9,6 +9,13 @@ controls_1:
 controls_2:
 .text "OR KEYS K L AND S@"
 
+controls_f3:
+.text "F3: SKIP LEVEL@"
+
+controls_f1:
+.text "F1: RESTART@"
+
+
 time_heading:
 .text "TIME: @"
 
@@ -58,6 +65,28 @@ show_controls:
   lda #>controls_2
   sta text_address_high
   jsr DrawText
+
+  lda #13
+  sta row
+  lda #11
+  sta col
+  lda #<controls_f1
+  sta text_address_low
+  lda #>controls_f1
+  sta text_address_high
+  jsr DrawText
+
+
+  lda #15
+  sta row
+  lda #11
+  sta col
+  lda #<controls_f3
+  sta text_address_low
+  lda #>controls_f3
+  sta text_address_high
+  jsr DrawText
+
 
   rts
 
