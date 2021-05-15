@@ -20,6 +20,7 @@ BasicUpstart65(Entry)
 *=$2016
 Entry: {
   
+
   jsr SetupSystem
   jsr CreateScreenLookup
 	jsr InitSound
@@ -30,6 +31,11 @@ Entry: {
 
   lda #$0
 	sta $d020
+	sta $d021
+
+	//Adjust screen
+	lda #$6a
+	sta $d04e
 
 	lda #$0
 	sta title_show_times

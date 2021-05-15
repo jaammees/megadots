@@ -434,7 +434,7 @@ animate_actors_done:
 DrawActors: {
 
   // sprite 0 colour
-  lda #7
+  lda #0
   sta $d027
 
   // clear the virtual values

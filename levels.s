@@ -180,6 +180,16 @@ clear_animated_tile_loop:
   jsr DrawTitleScreen
 !:
 
+  lda #$00
+  sta $d027
+  sta $d028
+  sta $d029
+  sta $d02a
+  sta $d02b
+  sta $d02c
+  sta $d02d
+  sta $d02e
+  
   rts
 }
 
