@@ -104,7 +104,7 @@ level1cdata:
 .byte 25, 15, CRUMBLE, 3
 .byte 33, 12, CRUMBLE, 3
 
-.byte 1, 6, CRUMBLE, 24
+.byte 1, 6, CRUMBLE, 32
 .byte 5, 5, DOT, 18
 // door location
 .byte 2

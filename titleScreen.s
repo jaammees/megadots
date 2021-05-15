@@ -68,7 +68,7 @@ show_controls:
 
   lda #13
   sta row
-  lda #11
+  lda #14
   sta col
   lda #<controls_f1
   sta text_address_low
@@ -79,7 +79,7 @@ show_controls:
 
   lda #15
   sta row
-  lda #11
+  lda #13
   sta col
   lda #<controls_f3
   sta text_address_low
@@ -95,7 +95,7 @@ show_times:
 
   lda #8
   sta row
-  lda #12
+  lda #13
   sta col
   lda #<time_heading
   sta text_address_low
@@ -105,7 +105,7 @@ show_times:
 
   lda #8
   sta row
-  lda #18
+  lda #19
   sta col
   lda #<player_last_time
   sta text_address_low
@@ -115,9 +115,9 @@ show_times:
 
 
 
-  lda #10
-  sta row
   lda #11
+  sta row
+  lda #13
   sta col
   lda #<best_heading
   sta text_address_low
@@ -127,7 +127,7 @@ show_times:
 
   lda #10
   sta row
-  lda #17
+  lda #19
   sta col
   lda #<player_best_time
   sta text_address_low
