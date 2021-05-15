@@ -1,7 +1,7 @@
 // data making up each of the levels
 
 
-.const LEVEL_COUNT    = 14
+.const LEVEL_COUNT    = 17
 
 
 .const VERTICAL     = $80
@@ -592,8 +592,8 @@ level4adata:
 .byte 1,5,CRUMBLE,3
 
 
-.byte 16,5,CRUMBLE,5
-.byte 17,4, DOT, 3
+.byte 17,3, DOT, 3
+.byte 16,4,CRUMBLE,5
 
 
 
@@ -770,7 +770,7 @@ level5data:
 .byte 13,11,TILE_EMITTER_DOWN,1
 .byte 26,11,TILE_EMITTER_DOWN,1
 
-.byte 18,15,DOT,4
+.byte 19,15,DOT,2
 .byte 19,17,SPIKE_UP,2
 .byte 19,18,BLOCK,2
 
@@ -1034,50 +1034,34 @@ levels:
 .byte <level1data
 .byte >level1data
 
-// enemy tutorial
-.byte <level3data
-.byte >level3data
-
 
 // crumble tutorial
 .byte <level1cdata
 .byte >level1cdata
 
-// spiral
-.byte <level1bdata
-.byte >level1bdata
 
+// enemy tutorial
+.byte <level3data
+.byte >level3data
 
-// jump and crumble
-.byte <level1adata
-.byte >level1adata
-
-
-.byte <level4data
-.byte >level4data
 
 // jump box
 .byte <level2adata
 .byte >level2adata
 
 
-
+// wall jump + jump tiles
+.byte <level4data
+.byte >level4data
 
 
 // buttons
 .byte <level4bdata
 .byte >level4bdata
 
+// jump tile 
 .byte <level4adata
 .byte >level4adata
-
-
-.byte <level6data
-.byte >level6data
-
-// all crumble
-.byte <level2data
-.byte >level2data
 
 
 // fall through crumble then 2 buttons
@@ -1085,19 +1069,42 @@ levels:
 .byte >level5data
 
 
+// all crumble
+.byte <level2data
+.byte >level2data
+
+
+
 // start with jump + buttons
 .byte <level3adata
 .byte >level3adata
+
+
+// enemies fall down
+.byte <level6data
+.byte >level6data
+
+
+.byte <level9data
+.byte >level9data
+
+
+// jump and crumble
+.byte <level1adata
+.byte >level1adata
 
 
 .byte <level8data
 .byte >level8data
 
 
-
-.byte <level9data
-.byte >level9data
-
 .byte <level7data
 .byte >level7data
+
+
+// spiral
+.byte <level1bdata
+.byte >level1bdata
+
+
 
