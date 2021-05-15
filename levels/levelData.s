@@ -84,8 +84,224 @@ level1data:
 .byte 3,16,0
 
 
+
+
+// -------------------------------------------//
+
+
+level1cdata:
+// sprite palette
+.byte 0
+// tile palette
+.byte 0
+// line count
+.byte 6
+// enemy count
+.byte 0
+
+.byte 9, 21, CRUMBLE, 3
+.byte 17, 18, CRUMBLE, 3
+.byte 25, 15, CRUMBLE, 3
+.byte 33, 12, CRUMBLE, 3
+
+.byte 1, 6, CRUMBLE, 24
+.byte 5, 5, DOT, 18
+// door location
+.byte 2
+.byte 3
+
+// no enemies
+
+// player start pos
+.byte 3,16,0
+
+
+// -------------------------------------------//
+
+
+level1adata:
+// sprite palette
+.byte 0
+// tile palette
+.byte 0
+// line count
+.byte 44
+// enemy count
+.byte 1
+
+// line data
+// col, row, type, length | orientation
+.byte 20,6,BLOCK, 18 | VERTICAL
+
+
+.byte 1,12, SPIKE_LEFT, 12 |VERTICAL
+.byte 19, 15, SPIKE_RIGHT, 9|VERTICAL
+.byte 5, 23, TILE_UP, 1
+.byte  10, 17, CRUMBLE, 4
+
+.byte 19,13,DOT,1
+.byte  17, 14, CRUMBLE, 3
+
+.byte 1,4,DOT,5 | VERTICAL
+.byte  1, 11, BLOCK, 1
+.byte  1, 10, TILE_UP, 1
+
+.byte  11,5,BLOCK, 10
+.byte 18,4,DOT,2
+.byte  20,2,CRUMBLE, 3 | VERTICAL
+
+.byte 24,2, BLOCK, 19 | VERTICAL
+
+.byte 21,15, SPIKE_LEFT, 2|VERTICAL
+.byte 23,19,SPIKE_RIGHT, 2 |VERTICAL
+.byte 21,2,SPIKE_DOWN, 3
+.byte 23,5, DOT, 3 | VERTICAL
+.byte 23,10, SPIKE_RIGHT,2 |VERTICAL
+//.byte 23,11,BLOCK,1
+.byte 21, 23, TILE_RIGHT, 1
+.byte 24, 23, DOT, 2
+
+.byte 28,23,TILE_UP,1
+.byte 28,20,DOT,2|VERTICAL
+.byte 29, 7,BLOCK, 17 | VERTICAL
+.byte 29, 2, SPIKE_DOWN, 10
+.byte 28,18,TILE_LEFT,1
+.byte 25,20,BLOCK,1
+.byte 25,19,TILE_UP,1
+.byte 25,14,DOT,4|VERTICAL
+
+
+.byte 28,14,SPIKE_RIGHT,1|VERTICAL
+.byte 25,10,SPIKE_LEFT,1|VERTICAL
+
+
+.byte 29,6,SPIKE_UP,8
+.byte 30,7,BLOCK,7
+.byte 37,7,CRUMBLE,2
+
+.byte 38,10,TILE_LEFT,1
+
+.byte 30, 10, DOT, 1
+.byte 30,11,CRUMBLE,2
+
+.byte 32,11,BLOCK,7
+
+//.byte 30, 14, TILE_RIGHT, 1
+.byte 32, 14, SPIKE_UP, 2
+.byte 30,15,BLOCK,7
+
+.byte 34,14,SPIKE_UP, 3
+.byte 38, 14, DOT, 1
+.byte 37, 15, CRUMBLE,2
+
+.byte 32,19,BLOCK,7
+
+
+// door location
+.byte 36
+.byte 21
+
+// 2 enemies
+//.byte  33, 13, 1
+.byte  33, 17, 1
+
+// player start pos
+.byte 3,16,0
+
 // ------------------------------------------------------------ //
 
+
+
+// -------------------------------------------//
+
+
+level1bdata:
+// sprite palette
+.byte 0
+// tile palette
+.byte 0
+// line count
+.byte 40
+// enemy count
+.byte 2
+
+// line data
+
+.byte 10, 2, DOT, 5
+.byte 8, 4, SPIKE_UP, 9
+
+.byte 29, 2, DOT, 5
+.byte 27, 4, SPIKE_UP, 9
+.byte 1, 5, BLOCK, 35
+.byte 35, 5, BLOCK, 16 | VERTICAL
+
+.byte 36, 5, SPIKE_LEFT, 4 | VERTICAL
+.byte 38, 6, DOT, 2 | VERTICAL
+
+.byte 38, 10, SPIKE_RIGHT, 4 | VERTICAL
+.byte 36, 11, DOT, 2 | VERTICAL
+
+.byte 36, 15, SPIKE_LEFT, 4 | VERTICAL
+.byte 38, 16, DOT, 2 | VERTICAL
+
+
+.byte 35, 23, BLOCK, 1
+
+.byte 0, 23, TILE_EMITTER_RIGHT, 1
+
+.byte 1, 15, TILE_RIGHT, 1
+//.byte 1, 19, DOT, 2 | VERTICAL
+.byte 1, 21, TILE_UP, 1
+.byte 1, 22, BLOCK, 1
+
+
+.byte 3, 10, TILE_LEFT, 1
+//.byte 3, 14, DOT, 2 | VERTICAL
+.byte 3, 16, TILE_UP, 1
+.byte 3, 17, BLOCK, 1
+
+
+//.byte 1, 9, DOT, 2 | VERTICAL
+.byte 1, 11, TILE_UP, 1
+.byte 1, 12, BLOCK, 1
+
+.byte 4, 6, DOT, 6
+
+.byte 34, 10, DOT, 6 | VERTICAL
+
+.byte 26, 21, DOT, 2
+.byte 17, 21, DOT, 2
+.byte 5, 20, BLOCK, 30
+.byte 4, 10, BLOCK, 11 | VERTICAL
+
+
+.byte 4, 9, BLOCK, 27
+.byte 31, 9, BLOCK, 8 | VERTICAL
+.byte 8, 16, BLOCK, 24
+.byte 31, 19, TILE_EMITTER_LEFT, 1
+
+.byte 8, 13, BLOCK, 4 | VERTICAL
+.byte 9, 13, BLOCK, 19
+
+.byte 8, 12, TILE_EMITTER_RIGHT, 1
+.byte 16, 9, TILE_EMITTER_DOWN, 1
+.byte 24, 9, TILE_EMITTER_DOWN, 1
+
+.byte 9, 14, TILE_RIGHT, 2 | VERTICAL
+.byte 16, 14, DOT, 12
+.byte 16, 15, DOT, 12
+// door location
+.byte 29
+.byte 13
+
+// 2 enemies
+.byte 4, 7, 1
+.byte 31, 7, 0
+
+// player start pos
+.byte 1,2,0
+
+// ------------------------------------------------
 level2data:
 // sprite palette
 .byte 0
@@ -346,13 +562,14 @@ level4adata:
 // tile palette
 .byte 0
 // line count
-.byte 14
+.byte 16
 // enemy count
 .byte 0
 
 // line data
 // col, row, type, length  | orientation
-
+.byte 4, 23, TILE_UP, 1
+.byte 8, 23, SPIKE_UP, 31
 .byte 14,21, CRUMBLE,5
 .byte 22,19, CRUMBLE, 5
 .byte 28,13, BLOCK, 6
@@ -365,7 +582,7 @@ level4adata:
 .byte 34,4,SPIKE_UP, 1
 .byte 34,5,BLOCK, 9 | VERTICAL
 
-.byte 29,8,TILE_UP,5
+.byte 31,8,TILE_UP,1
 .byte 29,9,BLOCK, 5
 .byte 28,9,SPIKE_RIGHT,1
 
@@ -443,23 +660,20 @@ level4bdata:
 
 
 
-.byte 28, 4, DOT, 2
+.byte 28, 4, DOT, 1
 
 .byte 25,5,TILE_SPIKE_RIGHT,1
 .byte 26, 5, TILE_BLOCK, 5
 .byte 31,5,TILE_SPIKE_LEFT,1
 
-.byte 16, 2, TILE_DOT, 5
+.byte 18, 2, TILE_DOT, 3
 
 .byte 6, 3, TILE_SWITCH_UP_RED, 1
-.byte 5, 4, TILE_BLOCK, 8
-.byte 13, 4, TILE_SPIKE_LEFT, 1
+.byte 5, 4, TILE_BLOCK, 9
+.byte 14, 4, TILE_SPIKE_LEFT, 1
 .byte 4, 4, TILE_SPIKE_RIGHT, 1
 
 .byte 1, 2, DOT, 1
-
-
-
 
 
 // door location
@@ -500,19 +714,19 @@ level4data:
 .byte 23,13,SPIKE_UP,11
 
 
-.byte 16,14,TILE_UP, 3
-.byte 16,15,BLOCK,3
+.byte 18,14,TILE_UP, 1
+.byte 18,15,BLOCK,1
 
 
-.byte 9,16, TILE_UP, 3
-.byte 9,17,BLOCK,3
+.byte 10,16, TILE_UP, 1
+.byte 10,17,BLOCK,1
 
 
-.byte 1,11, TILE_UP, 3
-.byte 1,12,BLOCK,3
+.byte 1,11, TILE_UP, 1
+.byte 1,12,BLOCK,1
 
 
-.byte 14,5,BLOCK,21
+.byte 14,5,CRUMBLE,21
 .byte 20,4, DOT, 4
 .byte 26,4, SPIKE_UP, 4
 
@@ -539,7 +753,7 @@ level5data:
 // tile palette
 .byte 0
 // line count
-.byte 12
+.byte 14
 // enemy count
 .byte 0
 
@@ -553,6 +767,8 @@ level5data:
 
 .byte 13,10,SPIKE_UP,14
 .byte 13,11,BLOCK,14
+.byte 13,11,TILE_EMITTER_DOWN,1
+.byte 26,11,TILE_EMITTER_DOWN,1
 
 .byte 18,15,DOT,4
 .byte 19,17,SPIKE_UP,2
@@ -814,47 +1030,74 @@ levels:
 .byte <level0data
 .byte >level0data
 
-
-.byte <level2adata
-.byte >level2adata
-
-
+// jump tutorial
 .byte <level1data
 .byte >level1data
 
-
+// enemy tutorial
 .byte <level3data
 .byte >level3data
 
-.byte <level3adata
-.byte >level3adata
+
+// crumble tutorial
+.byte <level1cdata
+.byte >level1cdata
+
+// spiral
+.byte <level1bdata
+.byte >level1bdata
 
 
-.byte <level4adata
-.byte >level4adata
+// jump and crumble
+.byte <level1adata
+.byte >level1adata
 
-.byte <level4bdata
-.byte >level4bdata
 
 .byte <level4data
 .byte >level4data
 
-.byte <level2data
-.byte >level2data
+// jump box
+.byte <level2adata
+.byte >level2adata
 
 
-.byte <level5data
-.byte >level5data
+
+
+
+// buttons
+.byte <level4bdata
+.byte >level4bdata
+
+.byte <level4adata
+.byte >level4adata
+
 
 .byte <level6data
 .byte >level6data
 
+// all crumble
+.byte <level2data
+.byte >level2data
+
+
+// fall through crumble then 2 buttons
+.byte <level5data
+.byte >level5data
+
+
+// start with jump + buttons
+.byte <level3adata
+.byte >level3adata
+
 
 .byte <level8data
 .byte >level8data
+
+
 
 .byte <level9data
 .byte >level9data
 
 .byte <level7data
 .byte >level7data
+

@@ -198,15 +198,15 @@ left_key_is_down:
 	cmp last_prb
 	beq check_keyboard_done
 	sta last_prb
-	and #%00010000 // F1
+	and #%01000000 // F7
+	
 	bne !+
+	jsr RestartGame
 !:
 	lda PRB
 	and #%00100000 // F3
 	bne !+
-	lda #$0
-	sta dot_count
-	jsr NextLevel
+	jsr SkipLevel
 !:
 
 check_keyboard_done:

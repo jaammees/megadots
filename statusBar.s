@@ -137,7 +137,6 @@ time1_bigger:
   rts
 
 time2_bigger:
-  inc $d020
   lda #1
   ply
   rts

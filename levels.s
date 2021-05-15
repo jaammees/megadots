@@ -72,6 +72,13 @@ EnterDoor: {
   beq go_through_door
   cmp #TILE_BLOCK_BLUE
   beq go_through_door
+  cmp #TILE_CRUMBLE1
+  beq go_through_door
+  cmp #TILE_CRUMBLE2
+  beq go_through_door
+  cmp #TILE_CRUMBLE3
+  beq go_through_door
+  
   jmp enter_door_done
 
   // door needs to be on a solid
@@ -81,6 +88,31 @@ go_through_door:
 
 enter_door_done:
   ply
+  rts
+} 
+
+SkipLevel: {
+	lda #$0
+	sta dot_count
+
+  lda #<player_status_seconds
+  sta status_address_low
+  lda #>player_status_seconds
+  sta status_address_high
+
+  jsr StatusIncrease2DigitNumber
+
+
+
+	jsr NextLevel
+  rts
+}
+
+RestartGame: {
+  lda #0
+  sta level_current
+
+  jsr StartLevel
   rts
 }
 

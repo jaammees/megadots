@@ -13,7 +13,7 @@ controls_f3:
 .text "F3: SKIP LEVEL@"
 
 controls_f1:
-.text "F1: RESTART@"
+.text "F5: RESTART@"
 
 
 time_heading:
