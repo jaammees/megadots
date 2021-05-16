@@ -857,13 +857,13 @@ level7data:
 
 .byte 1,23,SPIKE_UP,38
 
-.byte 15,4,TILE_SWITCH_UP_RED,1
-.byte 19,4,TILE_SWITCH_UP_GREEN,1
-.byte 23,4,TILE_SWITCH_UP_BLUE,1
-.byte 14,5,BLOCK,11
+.byte 15,12,TILE_SWITCH_UP_RED,1
+.byte 19,12,TILE_SWITCH_UP_GREEN,1
+.byte 23,12,TILE_SWITCH_UP_BLUE,1
+.byte 14,13,BLOCK,11
 
-.byte 18,13,BLOCK,4
-.byte 18,21,BLOCK,4
+.byte 18,7,BLOCK,4
+.byte 18,19,BLOCK,4
 
 
 .byte 36,16,DOT,2
@@ -881,22 +881,22 @@ level7data:
 .byte 1,17,TILE_BLANK_RED,4
 
 
-.byte 30,11,DOT,2
-.byte 28,12,TILE_BLANK_RED,6
+.byte 30,10,DOT,2
+.byte 28,11,TILE_BLANK_RED,6
 
-.byte 8,11,DOT,2
-.byte 6,12,TILE_BLANK_GREEN,6
+.byte 8,10,DOT,2
+.byte 6,11,TILE_BLANK_GREEN,6
 
 
 // door location
 .byte 18
-.byte 10
+.byte 4
 
 // enemies
-.byte 20,2,1
+.byte 20,8,1
 
 // player start pos
-.byte 21,9,0
+.byte 21,4,0
 
 
 
@@ -1097,7 +1097,7 @@ levels:
 .byte <level8data
 .byte >level8data
 
-
+// enemy controlled switches
 .byte <level7data
 .byte >level7data
 

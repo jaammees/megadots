@@ -125,7 +125,7 @@ show_times:
   sta text_address_high
   jsr DrawText
 
-  lda #10
+  lda #11
   sta row
   lda #19
   sta col
