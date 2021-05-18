@@ -52,7 +52,7 @@ Entry: {
 	sta level_current
 	jsr StartLevel
 
-!:
+
 	// wait for raster line
 wait_for_raster:
 	lda $d012
@@ -115,7 +115,7 @@ wait_for_raster_end:
 
 
 
-	jmp !-
+	jmp wait_for_raster
 }
 
 *= $3e04 
