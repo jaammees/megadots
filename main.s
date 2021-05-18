@@ -19,30 +19,38 @@
 BasicUpstart65(Entry)
 *=$2016
 Entry: {
-  
+	
+	jsr SetupSystem
 
-  jsr SetupSystem
-  jsr CreateScreenLookup
+
+	jsr CreateScreenLookup
 	jsr InitSound
 
 	jsr SetSpritePalette
 	jsr SetTilePalette
 
 
-  lda #$0
+	lda #$0
 	sta $d020
 	sta $d021
 
-	//Adjust screen
+
+	//Adjust screen if not xemu
+	lda $d629 
+	beq !+
+
+	lda #0
+	sta $d04f
 	lda #$6a
 	sta $d04e
+!:
 
 	lda #$0
 	sta title_show_times
 
 	lda #STARTING_LEVEL
-  sta level_current
-  jsr StartLevel
+	sta level_current
+	jsr StartLevel
 
 !:
 	// wait for raster line
@@ -77,7 +85,8 @@ increase_time_done:
 	jsr MoveActors
 	
 	jsr AnimateActors
-  jsr DrawActors
+	jsr DrawActors
+	jsr AnimateTiles
 
 	// work out sprite to sprite and sprite to tile collisions
 	jsr CheckSpriteCollisions
@@ -85,8 +94,8 @@ increase_time_done:
 	// game logic for collisions
 	jsr CheckCollisions
 
-  jsr AnimateTiles
-  jsr EnemyLogic
+	
+	jsr EnemyLogic
 
 	// just in case the player somehow gets outside the play area
 	jsr PlayerCheckInPlayArea
@@ -98,7 +107,6 @@ game_play_end:
 
 	jsr PlaySounds
 
-//  dec $d020
 
 wait_for_raster_end:
 	lda $d012
@@ -107,7 +115,7 @@ wait_for_raster_end:
 
 
 
-  jmp !-
+	jmp !-
 }
 
 *= $3e04 
