@@ -10,7 +10,6 @@
 .const ENEMY       = 2
 .const EFFECTS     = 3
 
-.const SPRITE_POINTERS = $bf8 // 0bf8
 
 
 // 21 sprites facing right, then 21 facing left

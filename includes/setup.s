@@ -58,11 +58,11 @@ SetupSystem: {
 
 SetupSprites: {
 
-	// 16 bit sprite pointers at $bf8
-	lda #$f8
+	// set location of 16 bit sprite pointers 
+	lda #<SPRITE_POINTERS
 	sta $d06c
 
-	lda #$0b
+	lda #>SPRITE_POINTERS
 	sta $d06d
 
 	lda #$80
