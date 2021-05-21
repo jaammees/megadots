@@ -5,6 +5,10 @@
 .const DOOR_LIGHT_GREEN = 57
 .const DOOR_DARK_GREEN  = 56
 
+.const DOOR_FRAME_LIGHT = 53
+.const DOOR_FRAME_DARK  = 35
+.const DOOR_FRAME_COLOR = 50
+
 
 // flash the door exit sign if the player can exit
 DoorStatus: {
@@ -20,8 +24,17 @@ DoorStatus: {
   ldx #DOOR_GREEN
   jsr CopyTileColor
 
+
   jmp door_status_done
 flash_door:
+  ldy #DOOR_FRAME_DARK
+  ldx #DOOR_FRAME_COLOR
+  jsr CopyTileColor
+
+  lda player_touching_door
+  bne touching_door
+
+
   dec door_flash_counter
   bne door_status_done
 
@@ -39,15 +52,23 @@ flash_door:
   jsr CopyTileColor
 
   jmp door_status_done
-!:  
-
-  
+!:    
   lda #1
   sta door_flash_state
   ldy #DOOR_DARK_GREEN
   ldx #DOOR_GREEN
   jsr CopyTileColor
+  jmp door_status_done
 
+touching_door:
+  
+  ldy #DOOR_LIGHT_GREEN
+  ldx #DOOR_GREEN
+  jsr CopyTileColor
+
+  ldy #DOOR_FRAME_LIGHT
+  ldx #DOOR_FRAME_COLOR
+  jsr CopyTileColor
 
 door_status_done:
   plx
@@ -153,6 +174,11 @@ StartLevel: {
   lda #$ff
   sta switch_type
   
+  // Setup colours
+  ldy #DOOR_FRAME_DARK
+  ldx #DOOR_FRAME_COLOR
+  jsr CopyTileColor
+
   // initialise the actors
   ldx #(ACTOR_COUNT - 1)
   lda #00

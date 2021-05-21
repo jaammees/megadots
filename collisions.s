@@ -259,7 +259,7 @@ check_door_collision:
   jmp check_up_collision
   
 door_collision:
-  // only want to do for player 1
+  // only want to do for actor 1
   txa 
   beq !+
   jmp check_tile_next

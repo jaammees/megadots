@@ -793,6 +793,100 @@ level5data:
 
 // ------------------------------------------------------------ //
 
+level5adata:
+// sprite palette
+.byte 0
+// tile palette
+.byte 0
+// line count
+.byte 38
+// enemy count
+.byte 1
+
+// line data
+// col, row, type, length  | orientation
+
+
+.byte 1,5,BLOCK,5
+.byte 6,5,TILE_BLOCK_RED,5
+.byte 11,5, BLOCK,18
+.byte 29,5, TILE_BLOCK_GREEN,5
+.byte 34,5, BLOCK, 5
+
+
+.byte 38, 6, TILE_LEFT, 1
+.byte 11, 6, BLOCK, 4 | VERTICAL
+.byte 3, 9, SPIKE_UP, 8
+.byte 3, 10, BLOCK, 9
+.byte 1, 13, BLOCK, 8
+
+.byte 11, 11, BLOCK, 11 | VERTICAL
+.byte 6, 16, BLOCK, 6
+
+.byte 0, 14, TILE_EMITTER_RIGHT, 2 | VERTICAL
+.byte 2, 14, TILE_BLANK_RED, 2 | VERTICAL
+.byte 1, 16, BLOCK, 2
+
+
+.byte 4, 20, TILE_UP, 1
+.byte 4, 21, BLOCK, 1
+
+.byte 10, 19, DOT, 2 | VERTICAL
+
+
+
+
+// -
+
+// middle block
+.byte 17,9,TILE_SWITCH_UP_GREEN, 1
+.byte 15,10,BLOCK,8
+.byte 15,9,BLOCK, 1
+.byte 20,9,TILE_SWITCH_UP_RED, 1
+.byte 22,9,BLOCK, 1
+
+//.byte 13,11,TILE_EMITTER_DOWN,1
+//.byte 26,11,TILE_EMITTER_DOWN,1
+
+
+.byte 34, 8, DOT, 4
+.byte 23, 9, BLOCK, 16
+.byte 30,8,SPIKE_UP,3
+
+
+.byte 12, 13, TILE_BLOCK_GREEN,13
+.byte 25, 13, BLOCK, 10
+.byte 27, 10, TILE_BLOCK_GREEN, 3|VERTICAL
+.byte 32,10, DOT, 2
+.byte 39, 12, TILE_EMITTER_LEFT, 1
+
+//.byte 19,15,DOT,2
+.byte 12,16,SPIKE_UP,17
+.byte 12,17,BLOCK,17
+.byte 34,16, DOT, 2
+.byte 32, 17, BLOCK, 7
+
+
+.byte 28, 18, BLOCK, 4 | VERTICAL
+.byte 29, 21, BLOCK, 6
+
+.byte 39, 20, TILE_EMITTER_LEFT, 1
+
+
+
+// door location
+.byte 19
+.byte 2
+
+// enemy location
+.byte 18, 7, 0
+
+// player start pos
+.byte 19,3,0
+
+
+// ------------------------------------------------------------ //
+
 level6data:
 // sprite palette
 .byte 0
@@ -1079,6 +1173,10 @@ levels:
 .byte <level3adata
 .byte >level3adata
 
+
+// fall through crumble then 2 buttons
+.byte <level5adata
+.byte >level5adata
 
 // enemies fall down
 .byte <level6data
