@@ -125,7 +125,7 @@ level1adata:
 // tile palette
 .byte 0
 // line count
-.byte 44
+.byte 43
 // enemy count
 .byte 1
 
@@ -158,14 +158,16 @@ level1adata:
 .byte 23,5, DOT, 3 | VERTICAL
 .byte 23,10, SPIKE_RIGHT,2 |VERTICAL
 //.byte 23,11,BLOCK,1
-.byte 21, 23, TILE_RIGHT, 1
-.byte 24, 23, DOT, 2
+//.byte 21, 23, TILE_RIGHT, 1
+//.byte 24, 23, DOT, 2
+.byte 21, 23, TILE_FUNNEL_RIGHT, 6
 
 .byte 28,23,TILE_UP,1
 .byte 28,20,DOT,2|VERTICAL
 .byte 29, 7,BLOCK, 17 | VERTICAL
 .byte 29, 2, SPIKE_DOWN, 10
 .byte 28,18,TILE_LEFT,1
+
 .byte 25,20,BLOCK,1
 .byte 25,19,TILE_UP,1
 .byte 25,14,DOT,4|VERTICAL
@@ -179,7 +181,9 @@ level1adata:
 .byte 30,7,BLOCK,7
 .byte 37,7,CRUMBLE,2
 
-.byte 38,10,TILE_LEFT,1
+//.byte 38,10,TILE_LEFT,1
+.byte 34,10,TILE_FUNNEL_LEFT,5
+
 
 .byte 30, 10, DOT, 1
 .byte 30,11,CRUMBLE,2
@@ -221,7 +225,7 @@ level1bdata:
 // tile palette
 .byte 0
 // line count
-.byte 40
+.byte 41
 // enemy count
 .byte 2
 
@@ -247,12 +251,20 @@ level1bdata:
 
 .byte 35, 23, BLOCK, 1
 
-.byte 0, 23, TILE_EMITTER_RIGHT, 1
+.byte 1, 22, TILE_UP, 1
+.byte 1, 18, DOT, 1
+
+.byte 1, 23, TILE_EMITTER_RIGHT, 1
+
+
+.byte 4, 21, TILE_FUNNEL_LEFT, 8
+//.byte 1, 21, TILE_UP, 1
+
+
 
 .byte 1, 15, TILE_RIGHT, 1
 //.byte 1, 19, DOT, 2 | VERTICAL
-.byte 1, 21, TILE_UP, 1
-.byte 1, 22, BLOCK, 1
+
 
 
 .byte 3, 10, TILE_LEFT, 1

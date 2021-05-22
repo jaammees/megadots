@@ -10,6 +10,54 @@
 .const DOOR_FRAME_COLOR = 50
 
 
+.const FUNNEL_COLOR_1   = 8
+.const FUNNEL_COLOR_2   = 9
+
+.const FUNNEL_COLOR_LIGHT = 10
+.const FUNNEL_COLOR_DARK = 11
+
+
+funnel_color_state:
+.byte 0
+funnel_state_counter:
+.byte 0
+
+CycleFunnelColors: {
+  dec funnel_state_counter
+  bpl cycle_funnel_colors_done
+
+//  inc $d020
+  lda #10
+  sta funnel_state_counter
+
+  lda funnel_color_state
+  bne !+
+    
+  ldy #FUNNEL_COLOR_LIGHT
+  ldx #FUNNEL_COLOR_1
+  jsr CopyTileColor
+
+  ldy #FUNNEL_COLOR_DARK
+  ldx #FUNNEL_COLOR_2
+  jsr CopyTileColor
+  jmp cycle_funnel_colors_done
+
+!:
+  ldy #FUNNEL_COLOR_LIGHT
+  ldx #FUNNEL_COLOR_2
+  jsr CopyTileColor
+
+  ldy #FUNNEL_COLOR_DARK
+  ldx #FUNNEL_COLOR_1
+  jsr CopyTileColor
+
+cycle_funnel_colors_done:
+  lda funnel_color_state
+  eor #1
+  sta funnel_color_state
+  rts
+}
+
 // flash the door exit sign if the player can exit
 DoorStatus: {
   phy

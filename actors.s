@@ -92,6 +92,25 @@ ActorRowColToPosition: {
   rts
 }
 
+ActorRowToPosition: {
+  lda row
+  sta actor_screen_yl,x
+  lda #$00
+  sta actor_screen_yh,x
+
+  asl actor_screen_yl,x
+  rol actor_screen_yh,x
+  asl actor_screen_yl,x
+  rol actor_screen_yh,x
+  asl actor_screen_yl,x
+  rol actor_screen_yh,x
+ 
+  jsr ActorScreenXToX
+  jsr ActorScreenYToY
+
+  rts
+}
+
 
 // convert x in screen coords to actor coords
 ActorScreenXToX: {

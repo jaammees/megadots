@@ -256,7 +256,7 @@ check_door_collision:
   cmp #DOOR_OPEN_6
   beq door_collision
   
-  jmp check_up_collision
+  jmp check_tile_funnel_right
   
 door_collision:
   // only want to do for actor 1
@@ -267,6 +267,68 @@ door_collision:
   lda #$01 
   sta player_touching_door
 
+
+
+check_tile_funnel_right:
+  cmp #TILE_FUNNEL_RIGHT  
+  bne check_tile_funnel_left
+  // similar to a boost
+
+  lda #0
+  sta actor_direction, x
+  lda #20
+  sta actor_sx, x
+
+	lda #FRAME_BOOST_X
+	sta actor_base_frame
+  lda #1
+  sta actor_frame_count
+  lda #4
+  sta player_boost_counter
+
+  lda #1
+  jsr SetPlayerCanBoost
+
+  // need to align player with the row
+//  dec row
+  jsr ActorRowToPosition
+  dec actor_screen_yl,x
+  jsr ActorScreenYToY
+
+  inc row
+
+check_tile_funnel_left:
+  cmp #TILE_FUNNEL_LEFT
+  bne check_tile_funnel_up
+  // similar to a boost
+
+  lda #1
+  sta actor_direction, x
+  lda #-20
+  sta actor_sx, x
+
+	lda #FRAME_BOOST_X
+	sta actor_base_frame
+  lda #1
+  sta actor_frame_count
+  lda #4
+  sta player_boost_counter
+
+  lda #1
+  jsr SetPlayerCanBoost
+
+  // need to align player with the row
+  jsr ActorRowToPosition
+  dec actor_screen_yl,x
+  jsr ActorScreenYToY
+
+  inc row
+
+
+check_tile_funnel_up:
+  cmp #TILE_FUNNEL_UP
+
+  bne check_up_collision
 
 check_up_collision:
   cmp #TILE_UP 
@@ -296,7 +358,9 @@ check_up_collision:
   lda #(bouncesound - soundsstart)
   jsr QueueSound
 
+
 check_tile_left_collision:
+  
   cmp #TILE_LEFT
   bne check_tile_right_collision
   

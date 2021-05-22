@@ -106,6 +106,8 @@ increase_time_done:
 
 	// should the door exit be flashing?
 	jsr DoorStatus
+
+	jsr CycleFunnelColors
 	
 game_play_end:
 
