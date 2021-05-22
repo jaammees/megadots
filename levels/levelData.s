@@ -1,7 +1,7 @@
 // data making up each of the levels
 
 
-.const LEVEL_COUNT    = 17
+.const LEVEL_COUNT    = 18
 
 
 .const VERTICAL     = $80
@@ -799,7 +799,7 @@ level5adata:
 // tile palette
 .byte 0
 // line count
-.byte 38
+.byte 43
 // enemy count
 .byte 1
 
@@ -818,7 +818,10 @@ level5adata:
 .byte 11, 6, BLOCK, 4 | VERTICAL
 .byte 3, 9, SPIKE_UP, 8
 .byte 3, 10, BLOCK, 9
+.byte 3, 12, DOT, 5
 .byte 1, 13, BLOCK, 8
+
+
 
 .byte 11, 11, BLOCK, 11 | VERTICAL
 .byte 6, 16, BLOCK, 6
@@ -849,14 +852,14 @@ level5adata:
 //.byte 26,11,TILE_EMITTER_DOWN,1
 
 
-.byte 34, 8, DOT, 4
+.byte 34, 8, DOT, 2
 .byte 23, 9, BLOCK, 16
 .byte 30,8,SPIKE_UP,3
 
 
 .byte 12, 13, TILE_BLOCK_GREEN,13
 .byte 25, 13, BLOCK, 10
-.byte 27, 10, TILE_BLOCK_GREEN, 3|VERTICAL
+.byte 25, 12, TILE_BLOCK_GREEN, 1|VERTICAL
 .byte 32,10, DOT, 2
 .byte 39, 12, TILE_EMITTER_LEFT, 1
 
@@ -871,6 +874,14 @@ level5adata:
 .byte 29, 21, BLOCK, 6
 
 .byte 39, 20, TILE_EMITTER_LEFT, 1
+
+
+.byte 14, 23, TILE_UP, 1
+
+.byte 25, 23, TILE_UP, 1
+.byte 15, 23, SPIKE_UP, 10
+
+.byte 16, 18, DOT, 8
 
 
 

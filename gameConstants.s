@@ -1,4 +1,4 @@
-.const STARTING_LEVEL         = 11
+.const STARTING_LEVEL         = 0
 
 
 .const GAME_STATE_PLAY        = 0
