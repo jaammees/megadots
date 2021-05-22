@@ -722,8 +722,8 @@ level4data:
 .byte 35,17,DOT,1
 .byte 38,14,DOT,1
 
-.byte 23,14,BLOCK,11
-.byte 23,13,SPIKE_UP,11
+.byte 24,14,BLOCK,10
+.byte 24,13,SPIKE_UP,10
 
 
 .byte 18,14,TILE_UP, 1
@@ -746,7 +746,7 @@ level4data:
 
 
 // door location
-.byte 27
+.byte 28
 .byte 17
 
 // 1 enemy, x, y, direction
@@ -872,7 +872,7 @@ level5adata:
 .byte 12, 13, TILE_BLOCK_GREEN,13
 .byte 25, 13, BLOCK, 10
 .byte 25, 12, TILE_BLOCK_GREEN, 1|VERTICAL
-.byte 32,10, DOT, 2
+.byte 33,10, DOT, 2
 .byte 39, 12, TILE_EMITTER_LEFT, 1
 
 //.byte 19,15,DOT,2
