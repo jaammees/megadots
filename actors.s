@@ -17,8 +17,6 @@
 // if facing left need to add offset to get sprite
 .const SPRITE_DIRECTION_OFFSET  = 24 * 2
 
-// memory location for right facing sprites
-.const SPRITES_FLIPPED_LOCATION = $2000 + SPRITE_DIRECTION_OFFSET * 64
 
 // pointers for sprites
 // each sprite is 128 bytes
@@ -664,9 +662,6 @@ actor_right_offset:
 
 actor_bottom_offset:
 .byte 14, 14, 14, 14, 14, 14, 14, 14
-
-//actor_yh:
-//.byte $00, $00, $00, $00, $00, $00, $00, $00
 
 actor_gravity_force:
 .byte $00, $00, $00, $00, $00, $00, $00, $00

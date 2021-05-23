@@ -1,10 +1,7 @@
 .cpu _45gs02
 
-//time 2:18
-//sprite pointers should be on 16 byte boundaries rather than 8 byte boundaries
-
 .const SCREEN_ADDR            = $0800
-.const SPRITE_POINTERS        = $c00 //$bf8 // 0bf8
+.const SPRITE_POINTERS        = $c00 //$bf8 
 
 .const COLOUR_RAM_ADDR        = $d800
 .const SPRITE_SCREEN_OFFSET_X = 24
@@ -14,9 +11,6 @@
 
 #import "gameConstants.s"
 #import "includes/m65macros.s"
-// offsets used to transform sprite coordinates to tile coordinates
-
-
 #import "zeropage.s"
 #import "tiles/tileTypes.s"
 
