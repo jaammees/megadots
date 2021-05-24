@@ -11,6 +11,12 @@ actor_jump_table:
 .byte -4, -06, -08, -08, -8, -10, -11, -13, -12, -10, -10, -10, -10, -12, -12, -12
 
 
+joystick_left_pushed: 
+.byte 0
+
+joystick_right_pushed:
+.byte 0
+
 // player has died, start countdown to restarting the level
 PlayerDie: {
 	jsr StatusIncreaseTries
@@ -56,6 +62,38 @@ set_player_can_boost_done:
 
 // respond to player controls
 PlayerControls: {
+
+	// want to store if player is holding left or right
+	// do this better..
+	lda #0
+	sta joystick_right_pushed
+
+	lda left_key_pressed
+	bne set_joystick_right_pushed
+
+  lda JOYSTICK
+  and #JOYSTICK_RIGHT
+  bne !+
+set_joystick_right_pushed:	
+	
+	lda #1
+	sta joystick_right_pushed
+!:	
+
+
+	lda #0
+	sta joystick_left_pushed
+
+	lda left_key_pressed
+	bne set_joystick_left_pushed
+
+  lda JOYSTICK
+  and #JOYSTICK_LEFT
+  bne !+
+set_joystick_left_pushed:	
+	lda #1
+	sta joystick_left_pushed
+!:	
 
 
 	dec blink_timer

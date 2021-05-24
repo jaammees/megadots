@@ -322,6 +322,7 @@ ActorCheckLeft: {
   sta check_screen_xh
   
   jsr GetCharAt
+  sta actor_char_left_top,x
   
   cmp #TILE_SOLID
   bne actor_check_left_mid
@@ -343,6 +344,7 @@ actor_check_left_mid:
   dec check_screen_y
 
   jsr GetCharAt
+  sta actor_char_left_mid,x 
 
   // is player left edge in a solid
   cmp #TILE_SOLID
@@ -361,7 +363,7 @@ actor_check_left_bottom:
   dec check_screen_y
 
   jsr GetCharAt
-
+  sta actor_char_left_bottom,x 
   // is player left edge in a solid
   cmp #TILE_SOLID
   bne actor_check_left_end
@@ -399,6 +401,7 @@ ActorCheckRight: {
   adc #$00
   sta check_screen_xh
   jsr GetCharAt
+  sta actor_char_right_top,x
   
   cmp #TILE_SOLID
   bne actor_check_right_mid
@@ -416,6 +419,8 @@ actor_check_right_mid:
   
   jsr GetCharAt
   
+  sta actor_char_right_mid,x 
+
   cmp #TILE_SOLID
   bne actor_check_right_bottom
   
@@ -430,7 +435,8 @@ actor_check_right_bottom:
   dec check_screen_y
   
   jsr GetCharAt
-  
+  sta actor_char_right_bottom,x 
+
   cmp #TILE_SOLID
   bne actor_check_right_done
   

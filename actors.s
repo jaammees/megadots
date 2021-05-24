@@ -317,7 +317,9 @@ move_actor_x_done:
 
 	// skip checks if its the effects actor
 	cpx #07
-	beq move_actor_x_check_done
+  bne !+
+	jmp move_actor_x_check_done
+!:
 
   jsr ActorCheckLeft
   sta actor_char_left,x
@@ -330,6 +332,62 @@ move_actor_x_done:
   cmp #$01
   bpl move_actor_x_check_right
 
+
+
+  // skip to left blocked if not the player
+  cpx #0
+	bne left_blocked
+
+  lda joystick_left_pushed
+  beq left_blocked
+  // if tile below is empty and only bottom right edge is in a solid and tile above the solid is blank
+  // then move upwards rather than left
+ 
+  lda actor_char_left_mid,x 
+  cmp #TILE_BLOCK
+  beq left_blocked
+
+  lda actor_char_left_top,x
+  cmp #TILE_BLOCK
+  beq left_top_blocked
+
+
+  // move upwards 
+
+  lda actor_screen_yl,x
+	adc actor_bottom_offset,x
+	and #%11111000
+	sec
+	sbc actor_bottom_offset,x
+	sta actor_screen_yl,x
+	jsr ActorScreenYToY
+
+  jmp move_actor_x_check_done
+
+
+left_top_blocked:
+  lda actor_char_left_bottom,x
+  cmp #TILE_BLOCK
+  beq left_blocked
+
+
+  // top is blocked, move down
+	// round player y position
+  inc $d020
+	clc
+	lda actor_screen_yl,x
+	adc #$07
+	and #%11111000
+	sec
+	sbc #01
+	
+	sta actor_screen_yl,x
+	// convert from screen coords
+	jsr ActorScreenYToY
+  jmp move_actor_x_check_done
+
+
+left_blocked:
 	// player left edge is in a solid, add 7 to position and round down 
 	clc 
 	lda actor_screen_xl,x
@@ -369,7 +427,60 @@ move_actor_x_check_right:
 	
 	cmp #TILE_SOLID
 	bne move_actor_x_check_done
+
+  // skip to right blocked if not the player
+  cpx #0
+	bne right_blocked
+
+  lda joystick_right_pushed
+  beq right_blocked
+
+  // if tile below is empty and only bottom right edge is in a solid and tile above the solid is blank
+  // then move upwards rather than left
+ 
+  lda actor_char_right_mid,x 
+  cmp #TILE_BLOCK
+  beq right_blocked
+
+  lda actor_char_right_top,x
+  cmp #TILE_BLOCK
+  beq right_top_blocked
+
+  // move upwards   
+  lda actor_screen_yl,x
+	adc actor_bottom_offset,x
+	and #%11111000
+	sec
+	sbc actor_bottom_offset,x
+	sta actor_screen_yl,x
+	jsr ActorScreenYToY
+
+  jmp move_actor_x_check_done
+
+
+right_top_blocked:
+  lda actor_char_right_bottom,x
+  cmp #TILE_BLOCK
+  beq right_blocked
+
+
+  // top is blocked, move down
+	// round player y position
+  inc $d020
+	clc
+	lda actor_screen_yl,x
+	adc #$07
+	and #%11111000
+	sec
+	sbc #01
 	
+	sta actor_screen_yl,x
+	// convert from screen coords
+	jsr ActorScreenYToY
+  jmp move_actor_x_check_done
+
+  // otherwise move out of the solid and set speed to zero
+right_blocked:
 
   lda actor_screen_xl,x
   and #%11111000
@@ -629,6 +740,26 @@ actor_screen_yl:
 .byte $30, $30, $30, $30, $30, $30, $30, $30
 
 actor_screen_yh:
+.byte $00, $00, $00, $00, $00, $00, $00, $00
+
+
+actor_char_right_top:
+.byte $00, $00, $00, $00, $00, $00, $00, $00
+
+actor_char_right_mid:
+.byte $00, $00, $00, $00, $00, $00, $00, $00
+
+actor_char_right_bottom:
+.byte $00, $00, $00, $00, $00, $00, $00, $00
+
+
+actor_char_left_top:
+.byte $00, $00, $00, $00, $00, $00, $00, $00
+
+actor_char_left_mid:
+.byte $00, $00, $00, $00, $00, $00, $00, $00
+
+actor_char_left_bottom:
 .byte $00, $00, $00, $00, $00, $00, $00, $00
 
 
