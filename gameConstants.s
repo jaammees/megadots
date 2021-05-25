@@ -28,7 +28,7 @@
 .const WALL_JUMP_TIME        = 7
 .const WALL_STICK_TIME       = 10
 
-.const UP_TILE_SPEED         = 30
+.const UP_TILE_SPEED         = 29
 
 .const BOOST_SPEED           = 22 //18
 .const BOOST_STEPS           = 11 //12
