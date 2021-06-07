@@ -6,7 +6,7 @@ AddAnimatedTile: {
   stx temp1
   sta temp2
  
-  ldx #MAX_ANIMATED_TILES
+  ldx #(MAX_ANIMATED_TILES-1)
 
 // find a free animated tile slot
 add_animated_tile_loop:
@@ -101,7 +101,7 @@ add_projectile_done:
 
 // loop through all the animated tiles and animated them
 AnimateTiles: {
-  ldx #MAX_ANIMATED_TILES
+  ldx #(MAX_ANIMATED_TILES-1)
   ldy #$0
 
 animate_tiles_loop:
