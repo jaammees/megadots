@@ -113,7 +113,7 @@ al C:e1c9 .sprite_palette_green_low
 al C:46bc .AddAnimatedTile
 al C:5de1 .make_animated_prev_tile_solid
 al C:3f13 .down_key_pressed
-al C:2065 .game_play
+al C:2056 .game_play
 al C:6087 .CheckSprite
 al C:eac6 .tile_palette_1_red
 al C:5ed7 .soundsstart
@@ -133,7 +133,7 @@ al C:60ac .check_sprite_loop
 al C:433f .move_actor_y_done
 al C:45ec .actor_xh
 al C:26 .level_current
-al C:2090 .wait_for_raster_end
+al C:2081 .wait_for_raster_end
 al C:5896 .player_check_start_wall_jump_right
 al C:53ee .funnel_state_counter
 al C:5d3e .found_blank_tile
@@ -368,7 +368,7 @@ al C:3 .game_state_counter
 al C:e0fa .store_number__0
 al C:e110 .store_number__1
 al C:3f11 .right_key_pressed
-al C:208d .game_play_end
+al C:207e .game_play_end
 al C:5787 .set_joystick_button_pushed
 al C:5d0c .set_current_color_loop
 al C:5cee .ActorCheckSpriteCollisions
@@ -532,7 +532,7 @@ al C:5f29 .sprite_to_sprite_2
 al C:6187 .check_tile_col_loop
 al C:8900 .spr_img_18_0
 al C:5f2a .sprite_to_sprite_3
-al C:2062 .game_dead
+al C:2053 .game_dead
 al C:5f2b .sprite_to_sprite_4
 al C:5f2c .sprite_to_sprite_5
 al C:61f9 .check_pixel_y_loop__0
@@ -564,7 +564,7 @@ al C:58c6 .player_start_boost
 al C:45a4 .actor_base_frame
 al C:5943 .check_wall_jump_counter_done
 al C:f2be .tile_palette_3_blue
-al C:2048 .wait_for_raster
+al C:2039 .wait_for_raster
 al C:5e47 .queuesound_done
 al C:35 .tile_type
 al C:454d .draw_actors_store_pointer
@@ -581,7 +581,7 @@ al C:5dfc .channel_control
 al C:8980 .spr_img_19_0
 al C:2d .level_line_direction
 al C:52bc .levels
-al C:206c .increase_time_done
+al C:205d .increase_time_done
 al C:497c .draw_projectile_new
 al C:ecc4 .tile_palette_1_blue
 al C:3f12 .up_key_pressed

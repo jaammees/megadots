@@ -35,13 +35,13 @@ Entry: {
 
 
 	//Adjust screen if not xemu
-	lda $d629 
-	beq !+
-	lda #0
-	sta $d04f
-	lda #$6a
-	sta $d04e
-!:
+//	lda $d629 
+//	beq !+
+//	lda #0
+//	sta $d04f
+//	lda #$6a
+//	sta $d04e
+//!:
 
 	lda #$0
 	sta title_show_times
