@@ -494,7 +494,7 @@ level3adata:
 // tile palette
 .byte 0
 // line count
-.byte 31
+.byte 33
 // enemy count
 .byte 0
 
@@ -504,6 +504,8 @@ level3adata:
 
 .byte 4,2, BLOCK, 6 | VERTICAL
 .byte 4,11, BLOCK, 5 | VERTICAL
+
+.byte 5,12,DOT, 2 | VERTICAL
 
 .byte 2,7, DOT, 5 | VERTICAL
 .byte 2,14,TILE_UP,1
@@ -526,6 +528,7 @@ level3adata:
 
 
 .byte 10,3,TILE_SWITCH_UP_RED, 1
+.byte 12,3,DOT, 3
 .byte 8,4, BLOCK, 14
 .byte 22,4,SPIKE_LEFT, 1
 
@@ -629,7 +632,7 @@ level4bdata:
 // tile palette
 .byte 0
 // line count
-.byte 31
+.byte 33
 // enemy count
 .byte 0
 
@@ -656,6 +659,8 @@ level4bdata:
 
 .byte 3, 14, TILE_SWITCH_DOWN_GREEN, 1
 .byte 8, 14, TILE_SWITCH_UP_RED, 1
+.byte 13,14, DOT, 3
+.byte 1,11, DOT, 2 | VERTICAL
 .byte 1,15,BLOCK, 15
 .byte 16,15, SPIKE_LEFT, 1
 .byte 1,16,SPIKE_DOWN,15
@@ -918,7 +923,7 @@ level6data:
 // line count
 .byte 15
 // enemy count
-.byte 3
+.byte 2
 
 // line data
 // col, row, type, length  | orientation
@@ -948,7 +953,7 @@ level6data:
 .byte 21
 
 // enemies: x, y, direction
-.byte 18,10,0
+//.byte 18,10,0
 .byte 22,10,0
 .byte 26,10,0
 

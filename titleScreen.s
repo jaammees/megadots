@@ -4,7 +4,7 @@ title_name:
 .text "MEGA DOTS@"
 
 controls_1:
-.text "JOYSTICK PORT 1@"
+.text "JOYSTICK PORT 1 OR 2@"
 
 controls_2:
 .text "OR KEYS K L AND S@"
@@ -48,7 +48,7 @@ DrawTitleScreen: {
 show_controls:
   lda #8
   sta row
-  lda #12
+  lda #9
   sta col
   lda #<controls_1
   sta text_address_low

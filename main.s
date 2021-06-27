@@ -54,10 +54,8 @@ Entry: {
 	// wait for raster line
 wait_for_raster:
 	lda $d012
-	cmp #$f0
+	cmp #$fe
 	bne wait_for_raster
-
-//  inc $d020
 
 	jsr DrawStatus
 	jsr CheckKeyboard
@@ -112,9 +110,6 @@ wait_for_raster_end:
 	lda $d012
 	cmp #$f0
 	beq wait_for_raster_end
-
-
-
 	jmp wait_for_raster
 }
 

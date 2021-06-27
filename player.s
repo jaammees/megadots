@@ -1,9 +1,10 @@
-.const JOYSTICK              = $dc01
+.const JOYSTICK_2            = $dc00
+.const JOYSTICK_1            = $dc01
 .const JOYSTICK_UP           = %00000001
 .const JOYSTICK_DOWN         = %00000010
 .const JOYSTICK_LEFT         = %00000100
 .const JOYSTICK_RIGHT        = %00001000
-.const JOYSTICK_FIRE         = %00010000
+.const JOYSTICK_BUTTON       = %00010000
 
 .const JUMP_STEPS            = 12
 // number of pixels actor will go up on each step
@@ -15,6 +16,9 @@ joystick_left_pushed:
 .byte 0
 
 joystick_right_pushed:
+.byte 0
+
+joystick_button_pushed:
 .byte 0
 
 // player has died, start countdown to restarting the level
@@ -68,18 +72,22 @@ PlayerControls: {
 	lda #0
 	sta joystick_right_pushed
 
-	lda left_key_pressed
+	lda right_key_pressed
 	bne set_joystick_right_pushed
 
-  lda JOYSTICK
+  lda JOYSTICK_1
   and #JOYSTICK_RIGHT
-  bne !+
+	beq set_joystick_right_pushed
+
+	lda JOYSTICK_2
+	and #JOYSTICK_RIGHT
+	beq set_joystick_right_pushed
+	jmp !+
+
 set_joystick_right_pushed:	
-	
 	lda #1
 	sta joystick_right_pushed
 !:	
-
 
 	lda #0
 	sta joystick_left_pushed
@@ -87,14 +95,44 @@ set_joystick_right_pushed:
 	lda left_key_pressed
 	bne set_joystick_left_pushed
 
-  lda JOYSTICK
+  lda JOYSTICK_1
   and #JOYSTICK_LEFT
-  bne !+
+  beq set_joystick_left_pushed
+
+  lda JOYSTICK_2
+  and #JOYSTICK_LEFT
+  beq set_joystick_left_pushed
+
+	jmp !+
+
 set_joystick_left_pushed:	
 	lda #1
 	sta joystick_left_pushed
 !:	
 
+	lda #0
+	sta joystick_button_pushed
+
+  lda JOYSTICK_1
+  and #JOYSTICK_BUTTON
+  beq set_joystick_button_pushed
+
+  lda JOYSTICK_2
+  and #JOYSTICK_BUTTON
+  beq set_joystick_button_pushed
+
+	// z key can also be used
+	lda z_key_pressed
+	bne set_joystick_button_pushed
+	lda x_key_pressed
+	bne set_joystick_button_pushed
+	jmp !+
+
+set_joystick_button_pushed:
+	lda #1
+	sta joystick_button_pushed
+
+!:
 
 	dec blink_timer
 
@@ -257,20 +295,13 @@ apply_gravity:
 apply_gravity_done:
 
 check_joystick:
-  lda JOYSTICK
-  and #JOYSTICK_FIRE
-  beq joystick_fire
-
-	// z key can also be used
-	lda z_key_pressed
-	bne joystick_fire
-	lda x_key_pressed
-	bne joystick_fire
+	lda joystick_button_pushed
+	bne joystick_button
 
   jmp joystick_not_fire
 
 	
-joystick_fire:
+joystick_button:
 	
   // if fire is already down, continuing jump
   // otherwise maybe start a jump
@@ -470,12 +501,14 @@ check_wall_jump_counter_done:
 
 
 check_joystick_left:
-  lda JOYSTICK
-  and #JOYSTICK_LEFT
-	beq joystick_is_left
-
-	lda left_key_pressed
+//  lda JOYSTICK_1
+//  and #JOYSTICK_LEFT
+//	beq joystick_is_left
+	lda joystick_left_pushed
 	bne joystick_is_left
+
+//	lda left_key_pressed
+//	bne joystick_is_left
 
   jmp check_joystick_right
 
@@ -513,11 +546,13 @@ joystick_left_done:
 	jmp check_joystick_up
 
 check_joystick_right:
-  lda JOYSTICK
-  and #JOYSTICK_RIGHT
-	beq joystick_is_right
+//  lda JOYSTICK_1
+//  and #JOYSTICK_RIGHT
+//	beq joystick_is_right
 	
-	lda right_key_pressed
+//	lda right_key_pressed
+//	bne joystick_is_right
+	lda joystick_right_pushed
 	bne joystick_is_right
 
   jmp joystick_not_left_or_right
@@ -563,12 +598,12 @@ joystick_not_left_or_right:
 	jsr player_reduce_speed
 
 check_joystick_up:
-  lda JOYSTICK
+  lda JOYSTICK_1
   and #JOYSTICK_UP
   bne check_joystick_down
 
 check_joystick_down:
-  lda JOYSTICK
+  lda JOYSTICK_2
   and #JOYSTICK_DOWN
 	beq joystick_is_down
 

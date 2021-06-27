@@ -373,7 +373,6 @@ left_top_blocked:
 
   // top is blocked, move down
 	// round player y position
-  inc $d020
 	clc
 	lda actor_screen_yl,x
 	adc #$07
@@ -466,7 +465,7 @@ right_top_blocked:
 
   // top is blocked, move down
 	// round player y position
-  inc $d020
+
 	clc
 	lda actor_screen_yl,x
 	adc #$07
